@@ -70,19 +70,9 @@
                         <span class="left">新闻中心</span>
                     </div>
 
-                    <!--<div class="list-group">-->
-                        <!--<li class="active"><a href="#">企业简介</a></li>-->
-                        <!--<li><a href="#">发展历程</a></li>-->
-                        <!--<li><a href="#">服务理念</a></li>-->
-                        <!--<li><a href="#">组织架构</a></li>-->
-                        <!--<li><a href="#">园区3D图</a></li>-->
-
-                    <!--</div>-->
                     <div class="list-group list2">
                         <li class="bbsli active">园区动态</li>
                         <li class="bbsli">媒体播报</li>
-
-
                     </div>
 
                 </div>
@@ -100,128 +90,169 @@
                     <div class="col-md-11">
                         <div class="conter_con">
                             <ul class="list_con fl">
-                                <li>
-                                    <a href="#" class="news_pic fl"><img src="{% static 'article/images/news_pic.jpg' %}"></a>
-                                    <a href="#" class="news_title fl">日本史上最大IPO之一要来了：软银计划将手机业务分拆上市软银计划将手机业务分拆上市，或募资2万亿日元(约180亿美元)</a>
-                                    <a href="#" class="news_detail fl">据日经新闻网，软银计划让旗下核心业务移动手机部门SoftBank Corp.分拆上市，或募资2万亿日元(约180亿美元)。随着软银逐步向投资公司转型，此举旨在给手机业务部门更多自主权。</a>
-                                    <div class="author_info fl">
-                                        <div class="author fl">
-                                            <img src="{% static 'article/images/person.png' %}" alt="author">
-                                            <a href="#">乐鸣</a>
+
+                            {#增加动态分页#}
+{#                            {% for entry in entry_list %}#}
+{#                                <br/>#}
+{#                                <h2><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h2>#}
+{##}
+{#                                {% if entry.img %}#}
+{#                                <div><img src="{{ entry.img.url }}" alt="博客配图" width="50%"/></div>#}
+{#                                {% endif %}#}
+{##}
+{#                                {% if entry.abstract %}#}
+{#                                <p>{{ entry.abstract }}</p>#}
+{#                                {% else %}#}
+{#                                <p>{{ entry.body|truncatechars:128 }}</p>#}
+{#                                {% endif %}#}
+{#                                <p>#}
+{#                                    <span>作者：{{ entry.author }}</span>#}
+{#                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;发表时间：{{ entry.created_time }}</span>#}
+{#                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;浏览量：{{ entry.visiting }}</span>#}
+{#                                </p>#}
+{##}
+{#                            {% endfor %}#}
+
+                        {#修改成动态分页#}
+                                {% for entry in entry_list %}
+                                    <li>
+                                        <a href="#" class="news_pic fl"><img src="{{ entry.img.url }}"></a>
+                                        <a href="{{ entry.get_absolute_url }}" class="news_title fl">{{ entry.title }}</a>
+                                        <a href="#" class="news_detail fl">{{ entry.abstract|truncatechars:108 }}</a>
+                                        <div class="author_info fl">
+                                            <div class="source fl">
+                                                <span>作者：{{ entry.author }}</span>
+                                            </div>
+                                            <div class="time fl">{{ entry.created_time }}</div>
                                         </div>
-                                        <div class="time fl">2017-01-01 00:00:00</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="news_pic fl"><img src="{% static 'article/images/news_pic.jpg' %}"></a>
-                                    <a href="#" class="news_title fl">日本史上最大IPO之一要来了：软银计划将手机业务分拆上市</a>
-                                    <a href="#" class="news_detail fl">据日经新闻网，软银计划让旗下核心业务移动手机部门SoftBank Corp.分拆上市，或募资2万亿日元(约180亿美元)。随着软银逐步向投资公司转型，此举旨在给手机业务部门更多自主权。</a>
-                                    <div class="author_info fl">
-                                        <div class="source fl">
-                                            来源：广州日报
-                                        </div>
-                                        <div class="time fl">2017-01-01 00:00:00</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="news_pic fl"><img src="{% static 'article/images/news_pic.jpg' %}"></a>
-                                    <a href="#" class="news_title fl">日本史上最大IPO之一要来了：软银计划将手机业务分拆上市</a>
-                                    <a href="#" class="news_detail fl">据日经新闻网，软银计划让旗下核心业务移动手机部门SoftBank Corp.分拆上市，或募资2万亿日元(约180亿美元)。随着软银逐步向投资公司转型，此举旨在给手机业务部门更多自主权。</a>
-                                    <div class="author_info fl">
-                                        <div class="author fl">
-                                            <img src="{% static 'article/images/person.png' %}" alt="author">
-                                            <a href="#">乐鸣</a>
-                                        </div>
-                                        <div class="time fl">2017-01-01 00:00:00</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="news_pic fl"><img src="{% static 'article/images/news_pic.jpg' %}"></a>
-                                    <a href="#" class="news_title fl">日本史上最大IPO之一要来了：软银计划将手机业务分拆上市</a>
-                                    <a href="#" class="news_detail fl">据日经新闻网，软银计划让旗下核心业务移动手机部门SoftBank Corp.分拆上市，或募资2万亿日元(约180亿美元)。随着软银逐步向投资公司转型，此举旨在给手机业务部门更多自主权。</a>
-                                    <div class="author_info fl">
-                                        <div class="source fl">
-                                            来源：广州日报
-                                        </div>
-                                        <div class="time fl">2017-01-01 00:00:00</div>
-                                    </div>
-                                </li>
+                                    </li>
+                                {% endfor %}
                             </ul>
+                            <hr />
+                            <!--/.pagination-->
+                            <div id="paginator" class="pull-right">
+                                    <ul class="pagination">
+                                    {%  if entry_list.has_previous %}
+                                        <li><a href="?page={{ entry_list.previous_page_number }}"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a></li>
+                                    {% endif %}
+
+                                    {% if first %}
+                                        <li><a href="?page=1">1</a></li>
+                                    {% endif %}
+
+                                    {% if left %}
+                                        {% if left_has_more %}
+                                            <span>...</span>
+                                        {% endif %}
+
+                                        {% for i in left %}
+                                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                        {% endfor %}
+                                    {% endif %}
+
+
+                                    <li class="active"><a href="?page={{ entry_list.number }}">{{ entry_list.number }}</a></li>
+
+                                    {% if right %}
+                                        {% for i in right %}
+                                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                        {% endfor %}
+
+                                        {% if right_has_more %}
+                                            <span>...</span>
+                                        {% endif %}
+                                    {% endif %}
+
+                                    {% if last %}
+                                        <li><a href="?page={{ entry_list.num_pages }}">{{ entry_list.num_pages }}</a></li>
+                                    {% endif %}
+
+                                    {% if entry_list.has_next %}
+                                        <li><a href="?page={{ entry_list.next_page_number }}">下一页<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                                    {% endif %}
+                                    </ul>
+                                </div>
                         </div>
-
-
                     </div>
-
-
                 </div>
             </div>
 
             <!--媒体播报-->
             <div class="col-md-10 col-xs-10 bbsRight ">
                 <div class="outer">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        <div class="inner">
-                            <span class="right">媒体播报</span>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div class="inner">
+                                <span class="right">媒体播报</span>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-11">
+                            <div class="conter_con">
+                                <ul class="list_con fl">
+
+                                {#修改成动态分页#}
+                                        {% for entry in entry_list %}
+                                            <li>
+                                                <a href="#" class="news_pic fl"><img src="{{ entry.img.url }}"></a>
+                                                <a href="{{ entry.get_absolute_url }}" class="news_title fl">{{ entry.title }}</a>
+                                                <a href="#" class="news_detail fl">{{ entry.abstract|truncatechars:108 }}</a>
+                                                <div class="author_info fl">
+                                                    <div class="source fl">
+                                                        <span>作者：{{ entry.author }}</span>
+                                                    </div>
+                                                    <div class="time fl">{{ entry.created_time }}</div>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                <hr />
+                                <!--/.pagination-->
+                                <div id="paginator" class="pull-right">
+                                    <ul class="pagination">
+                                    {%  if entry_list.has_previous %}
+                                        <li><a href="?page={{ entry_list.previous_page_number }}"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a></li>
+                                    {% endif %}
+
+                                    {% if first %}
+                                        <li><a href="?page=1">1</a></li>
+                                    {% endif %}
+
+                                    {% if left %}
+                                        {% if left_has_more %}
+                                            <span>...</span>
+                                        {% endif %}
+
+                                        {% for i in left %}
+                                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                        {% endfor %}
+                                    {% endif %}
+
+
+                                    <li class="active"><a href="?page={{ entry_list.number }}">{{ entry_list.number }}</a></li>
+
+                                    {% if right %}
+                                        {% for i in right %}
+                                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                        {% endfor %}
+
+                                        {% if right_has_more %}
+                                            <span>...</span>
+                                        {% endif %}
+                                    {% endif %}
+
+                                    {% if last %}
+                                        <li><a href="?page={{ entry_list.num_pages }}">{{ entry_list.num_pages }}</a></li>
+                                    {% endif %}
+
+                                    {% if entry_list.has_next %}
+                                        <li><a href="?page={{ entry_list.next_page_number }}">下一页<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                                    {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-11">
-                        <div class="conter_con">
-                            <ul class="list_con fl">
-                                <li>
-                                    <a href="#" class="news_pic fl"><img src="{% static 'article/images/news_pic.jpg' %}"></a>
-                                    <a href="#" class="news_title fl">日本史上最大IPO之一要来了：软银计划将手机业务分拆上市软银计划将手机业务分拆上市，或募资2万亿日元(约180亿美元)</a>
-                                    <a href="#" class="news_detail fl">据日经新闻网，软银计划让旗下核心业务移动手机部门SoftBank Corp.分拆上市，或募资2万亿日元(约180亿美元)。随着软银逐步向投资公司转型，此举旨在给手机业务部门更多自主权。</a>
-                                    <div class="author_info fl">
-                                        <div class="author fl">
-                                            <img src="{% static 'article/images/person.png' %}" alt="author">
-                                            <a href="#">乐鸣</a>
-                                        </div>
-                                        <div class="time fl">2017-01-01 00:00:00</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="news_pic fl"><img src="{% static 'article/images/news_pic.jpg' %}"></a>
-                                    <a href="#" class="news_title fl">日本史上最大IPO之一要来了：软银计划将手机业务分拆上市</a>
-                                    <a href="#" class="news_detail fl">据日经新闻网，软银计划让旗下核心业务移动手机部门SoftBank Corp.分拆上市，或募资2万亿日元(约180亿美元)。随着软银逐步向投资公司转型，此举旨在给手机业务部门更多自主权。</a>
-                                    <div class="author_info fl">
-                                        <div class="source fl">
-                                            来源：广州日报
-                                        </div>
-                                        <div class="time fl">2017-01-01 00:00:00</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="news_pic fl"><img src="{% static 'article/images/news_pic.jpg' %}"></a>
-                                    <a href="#" class="news_title fl">日本史上最大IPO之一要来了：软银计划将手机业务分拆上市</a>
-                                    <a href="#" class="news_detail fl">据日经新闻网，软银计划让旗下核心业务移动手机部门SoftBank Corp.分拆上市，或募资2万亿日元(约180亿美元)。随着软银逐步向投资公司转型，此举旨在给手机业务部门更多自主权。</a>
-                                    <div class="author_info fl">
-                                        <div class="author fl">
-                                            <img src="{% static 'article/images/person.png' %}" alt="author">
-                                            <a href="#">乐鸣</a>
-                                        </div>
-                                        <div class="time fl">2017-01-01 00:00:00</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="news_pic fl"><img src="{% static 'article/images/news_pic.jpg' %}"></a>
-                                    <a href="#" class="news_title fl">日本史上最大IPO之一要来了：软银计划将手机业务分拆上市</a>
-                                    <a href="#" class="news_detail fl">据日经新闻网，软银计划让旗下核心业务移动手机部门SoftBank Corp.分拆上市，或募资2万亿日元(约180亿美元)。随着软银逐步向投资公司转型，此举旨在给手机业务部门更多自主权。</a>
-                                    <div class="author_info fl">
-                                        <div class="source fl">
-                                            来源：广州日报
-                                        </div>
-                                        <div class="time fl">2017-01-01 00:00:00</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                    </div>
-
-
                 </div>
             </div>
         </div>

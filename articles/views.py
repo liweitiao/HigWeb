@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 
+from . import models
+
 # Create your views here.
 
 
@@ -9,15 +11,27 @@ def index(request):
     return render(request, 'article/index4.html', locals())
 
 
+def detail(request):
+    return render(request, 'article/detail.html', locals())
+
+
 def qiye(request):
     return render(request, 'article/企业概况3练习.html', locals())
 
 
 def xinwen(request):
+    entries = models.Entry.objects.all()
+    page = request.GET.get('page', 1)
+    entry_list, paginator = make_paginator(entries, page)
+    page_data = pagination_data(paginator, page)
     return render(request, 'article/新闻中心.html', locals())
 
 
 def bianmin(request):
+    entries = models.Entry.objects.all()
+    page = request.GET.get('page', 1)
+    entry_list, paginator = make_paginator(entries, page)
+    page_data = pagination_data(paginator, page)
     return render(request, 'article/便民信息.html', locals())
 
 
@@ -26,10 +40,18 @@ def yuanqu(request):
 
 
 def dangqun(request):
+    entries = models.Entry.objects.all()
+    page = request.GET.get('page', 1)
+    entry_list, paginator = make_paginator(entries, page)
+    page_data = pagination_data(paginator, page)
     return render(request, 'article/党群建设.html', locals())
 
 
 def gonggao(request):
+    entries = models.Entry.objects.all()
+    page = request.GET.get('page', 1)
+    entry_list, paginator = make_paginator(entries, page)
+    page_data = pagination_data(paginator, page)
     return render(request, 'article/公告栏.html', locals())
 
 

@@ -5,6 +5,7 @@ app_name = 'article'
 
 urlpatterns = [
     url(r'^$', views.index, name='article_index'),
+    url(r'^(?P<article_id>[0-9]+)/$', views.detail, name='article_detail'),
     url(r'^qiye$', views.qiye, name='article_qiye'),
     url(r'^xinwen$', views.xinwen, name='article_xinwen'),
     url(r'^bianmin$', views.bianmin, name='article_bianmin'),
