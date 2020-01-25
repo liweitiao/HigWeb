@@ -1,0 +1,358 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>HIGREEN海吉星</title>
+{#    <link rel="stylesheet" href="css/bootstrap.min.css"/>#}
+{#    <link rel="stylesheet" href="css/bootstrap-maizi.css"/>#}
+{#    <link rel="stylesheet" href="css/animate.css"/>#}
+
+    <link href="{% static 'article/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'article/css/bootstrap-maizi4.css' %}" rel="stylesheet">
+    <link href="{% static 'article/css/animate.css' %}" rel="stylesheet">
+</head>
+<body>
+<!--导航-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!--小屏幕导航按钮和logo-->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">海吉星</a>
+        </div>
+        <!--小屏幕导航按钮和logo-->
+        <!--导航-->
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#bbs">企业概况</a></li>
+                <li><a href="#html5">新闻中心</a></li>
+                <li><a href="#course">便民信息</a></li>
+                <li><a href="#app">园区指南</a></li>
+                <li><a href="#contact">党群建设</a></li>
+                <li><a href="#">公告栏</a></li>
+            </ul>
+        </div>
+        <!--导航-->
+
+    </div>
+</nav>
+<!--导航-->
+
+
+<!--home-->
+<section id="home">
+{#    <img src="images/1.jpg" class="img-responsive" alt="首页图片"/>#}
+    <img src="{% static 'article/images/1.jpg' %}" class="img-responsive" alt="首页图片"/>
+</section>
+<!--home-->
+
+
+<!--bbs4-->
+<section id="bbs4">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-duration="0.5s">
+            <div class="col-md-7 col-xs-7">
+                <div class="outer">
+                    <div class="inner ">
+                        <span class="left">企业简介</span>
+                        <a href="#">详情>></a>
+                    </div>
+
+                    <div class="inner2 ">
+                        <div class="col-md-6 col-xs-6">
+{#                            <img src="images/wlyght.jpg" alt="123" class="img-responsive">#}
+                            <img src="{% static 'article/images/wlyght.jpg' %}" alt="123" class="img-responsive">
+                            <!--<img src="images/wlyght.jpg" alt="123" class="img-rounded img-responsive">-->
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                                <P class="col-md-12 col-xs-12 text-left">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;深圳市农产品集团股份有限公司（股票代码：000061）成立于1989年，是一家以投资、开发、建设、经营和管理农产品批发市场为核心业务、
+                                    总资产超过180亿元的大型现代化农产品流通企业集团，旗下全资、控股企业42家，分公司2家，主要参股企业22家。深农集团肩负使命、情系民生，始终致力于中国农产品流通领域的发展与进步。
+                                    率先开创农批市场网络化经营模式，在深圳、北京、上海、天津、成都、西安、长沙、武汉等26个大中城市经营管理了38家综合批发市场和网上交...
+                                </P>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-5 col-xs-5">
+                <div class="outer">
+                    <div class="inner">
+                        <span class="left">政策法规</span>
+                        <a href="#">更多>></a>
+                    </div>
+                    <div class="inner2">
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--bbs4-->
+
+
+<!--bbs6-->
+<section id="bbs6">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-duration="0.5s">
+            <div class="col-md-7 col-xs-7">
+                <div class="outer">
+                    <div class="inner">
+                        <span class="left">食品安全</span>
+                        <a href="#">详情>></a>
+                    </div>
+
+                    <div class="inner2">
+                        <div class="col-md-6 col-xs-6">
+{#                            <img src="images/food2.png" alt="123" class="img-responsive">#}
+                            <img src="{% static 'article/images/food2.png' %}" alt="123" class="img-responsive">
+                            <!--<img src="images/wlyght.jpg" alt="123" class="img-rounded img-responsive">-->
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                            <!--<img src="images/wlyght.jpg" alt="..." class="img-rounded">-->
+                                <div class="inner3">
+                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+
+                                </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-5 col-xs-5">
+                <div class="outer">
+                    <div class="inner">
+                        <span class="left">价格行情</span>
+                        <a href="#">更多>></a>
+                    </div>
+                    <div class="inner2">
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--bbs6-->
+
+
+<!--bbs2-->
+<section id="bbs2">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-duration="0.5s">
+            <div class="col-md-4 col-xs-4">
+                <div class="outer">
+                    <div class="inner">
+                        <span class="left">园区动态</span>
+                        <a href="#">更多>></a>
+                    </div>
+                    <div class="inner2">
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xs-4">
+                <div class="outer">
+                    <div class="inner">
+                        <span class="left">媒体播报</span>
+                        <a href="#">更多>></a>
+                    </div>
+                    <div class="inner2">
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <div class="outer">
+                    <div class="inner">
+                        <span class="left">企业公告</span>
+                        <a href="#">更多>></a>
+                    </div>
+                    <div class="inner2">
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--bbs2-->
+
+
+<!--bbs3-->
+<section id="bbs3">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-duration="0.5s">
+            <div class="col-md-4 col-xs-4">
+                <div class="outer">
+                    <div class="inner">
+                        <span class="left">党群建设</span>
+                        <a href="#">更多>></a>
+                    </div>
+                    <div class="inner2">
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xs-4">
+                <div class="outer">
+                    <div class="inner">
+                        <span class="left">食品知识</span>
+                        <a href="#">更多>></a>
+                    </div>
+                    <div class="inner2">
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <div class="outer">
+                    <div class="inner">
+                        <span class="left">园区业务办理指引</span>
+                        <a href="#">更多>></a>
+                    </div>
+                    <div class="inner2">
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--bbs3-->
+
+
+
+
+
+
+<!--footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <p>
+                    客服中心：4008000061转8    公司传真：0755-89695958
+                </p>
+                <p>
+                    地址：深圳市龙岗区平湖白坭坑社区丹农路1号
+                </p>
+                <br>
+                <p>
+                    © 深圳海吉星, 2016. All rights reserved    粤ICP备14057873号-4    粤公网安备 44030702000610号
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer-->
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="{% static 'article/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
+<script src="{% static 'article/js/wow.min.js' %}"></script>
+<script>
+    $(function(){
+        /*导航跳转效果插件*/
+        $('.nav').singlePageNav({
+            offset:70
+        });
+        /*小屏幕导航点击关闭菜单*/
+        $('.navbar-collapse a').click(function(){
+            $('.navbar-collapse').collapse('hide');
+        });
+        new WOW().init();
+    })
+</script>
+</body>
+</html>
