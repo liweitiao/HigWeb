@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load article_tags %}
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -31,9 +32,9 @@
         <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home">首页</a></li>
+                <li><a href="{% url 'article:article_index' %}">首页</a></li>
                 <li><a href="#bbs">企业概况</a></li>
-                <li><a href="#html5">新闻中心</a></li>
+                <li><a href="{% url 'article:article_xinwen' %}">新闻中心</a></li>
                 <li><a href="#course">便民信息</a></li>
                 <li><a href="#app">园区指南</a></li>
                 <li><a href="#contact">党群建设</a></li>
@@ -93,15 +94,11 @@
                         <a href="#">更多>></a>
                     </div>
                     <div class="inner2">
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>
+                        {% get_recent_entries_03 as recent_entry_list_03 %}
+                        {% for entry in recent_entry_list_03 %}
+                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:28 }}<span>{{ entry.created_time|date:'Y-m-d' }}</span></li></a>
+                        {% endfor %}
+{#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>#}
                     </div>
 
 
@@ -132,16 +129,11 @@
                         <div class="col-md-6 ">
                             <!--<img src="images/wlyght.jpg" alt="..." class="img-rounded">-->
                                 <div class="inner3">
-                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-
+                                    {% get_recent_entries_04 as recent_entry_list_04 %}
+                                    {% for entry in recent_entry_list_04 %}
+                                        <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:28 }}</li></a>
+                                    {% endfor %}
+{#                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
                                 </div>
                         </div>
 
@@ -190,12 +182,12 @@
                         <a href="#">更多>></a>
                     </div>
                     <div class="inner2">
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        {% get_recent_entries_01 as recent_entry_list_01 %}
+                        {% for entry in recent_entry_list_01 %}
+                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:28 }}</li></a>
+                        {% endfor %}
+
+{#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
                     </div>
 
 
@@ -209,12 +201,11 @@
                         <a href="#">更多>></a>
                     </div>
                     <div class="inner2">
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        {% get_recent_entries_02 as recent_entry_list_02 %}
+                        {% for entry in recent_entry_list_02 %}
+                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:28 }}</li></a>
+                        {% endfor %}
+{#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
                     </div>
 
 
@@ -227,12 +218,12 @@
                         <a href="#">更多>></a>
                     </div>
                     <div class="inner2">
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        {% get_recent_entries_09 as recent_entry_list_09 %}
+                        {% for entry in recent_entry_list_09 %}
+                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:28 }}</li></a>
+                        {% endfor %}
+{#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
+
                     </div>
 
 
@@ -255,12 +246,12 @@
                         <a href="#">更多>></a>
                     </div>
                     <div class="inner2">
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        {% get_recent_entries_06 as recent_entry_list_06 %}
+                        {% for entry in recent_entry_list_06 %}
+                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:28 }}</li></a>
+                        {% endfor %}
+{#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
+
                     </div>
 
 
@@ -274,12 +265,11 @@
                         <a href="#">更多>></a>
                     </div>
                     <div class="inner2">
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        {% get_recent_entries_05 as recent_entry_list_05 %}
+                        {% for entry in recent_entry_list_05 %}
+                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:28 }}</li></a>
+                        {% endfor %}
+{#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
                     </div>
 
 
@@ -340,17 +330,17 @@
 <script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
 <script src="{% static 'article/js/wow.min.js' %}"></script>
 <script>
-    $(function(){
-        /*导航跳转效果插件*/
-        $('.nav').singlePageNav({
-            offset:70
-        });
-        /*小屏幕导航点击关闭菜单*/
-        $('.navbar-collapse a').click(function(){
-            $('.navbar-collapse').collapse('hide');
-        });
-        new WOW().init();
-    })
+{#    $(function(){#}
+{#        /*导航跳转效果插件*/#}
+{#        $('.nav').singlePageNav({#}
+{#            offset:70#}
+{#        });#}
+{#        /*小屏幕导航点击关闭菜单*/#}
+{#        $('.navbar-collapse a').click(function(){#}
+{#            $('.navbar-collapse').collapse('hide');#}
+{#        });#}
+{#        new WOW().init();#}
+{#    })#}
 </script>
 </body>
 </html>

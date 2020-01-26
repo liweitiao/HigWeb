@@ -11,7 +11,7 @@ def index(request):
     return render(request, 'article/index4.html', locals())
 
 
-def detail(request):
+def detail(request, article_id):
     return render(request, 'article/detail.html', locals())
 
 
@@ -25,6 +25,32 @@ def xinwen(request):
     entry_list, paginator = make_paginator(entries, page)
     page_data = pagination_data(paginator, page)
     return render(request, 'article/新闻中心.html', locals())
+
+
+def xinwen2(request):
+    # 园区动态文章列表
+    c01 = models.Category.objects.get(id=1)
+    entries_01 = models.Entry.objects.filter(category=c01)
+    page_01 = request.GET.get('page', 1)
+    entry_list_01, paginator_01 = make_paginator(entries_01, page_01)
+    page_data_01 = pagination_data(paginator_01, page_01)
+    # 媒体播报文章列表
+    c02 = models.Category.objects.get(id=2)
+    entries_02 = models.Entry.objects.filter(category=c02)
+    page_02 = request.GET.get('page', 1)
+    entry_list_02, paginator_02 = make_paginator(entries_02, page_02)
+    page_data_02 = pagination_data(paginator_02, page_02)
+    return render(request, 'article/新闻中心2.html', locals())
+
+
+# def category(request, category_id):
+#     c = models.Category.objects.get(id=category_id)
+#     # c = get_object_or_404(models.Category, id=category_id)
+#     entries = models.Entry.objects.filter(category=c)
+#     page = request.GET.get('page', 1)
+#     entry_list, paginator = make_paginator(entries, page)
+#     page_data = pagination_data(paginator, page)
+#     return render(request, 'article/新闻中心.html', locals())
 
 
 def bianmin(request):
@@ -174,3 +200,11 @@ def pagination_data(paginator, page):
     return data
 
 
+def category(request, category_id):
+    c = models.Category.objects.get(id=category_id)
+    # c = get_object_or_404(models.Category, id=category_id)
+    entries = models.Entry.objects.filter(category=c)
+    page = request.GET.get('page', 1)
+    entry_list, paginator = make_paginator(entries, page)
+    page_data = pagination_data(paginator, page)
+    return render(request, 'article/新闻中心.html', locals())

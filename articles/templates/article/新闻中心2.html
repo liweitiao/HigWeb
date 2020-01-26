@@ -92,29 +92,10 @@
                             <ul class="list_con fl">
 
                             {#增加动态分页#}
-{#                            {% for entry in entry_list %}#}
-{#                                <br/>#}
-{#                                <h2><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h2>#}
-{##}
-{#                                {% if entry.img %}#}
-{#                                <div><img src="{{ entry.img.url }}" alt="博客配图" width="50%"/></div>#}
-{#                                {% endif %}#}
-{##}
-{#                                {% if entry.abstract %}#}
-{#                                <p>{{ entry.abstract }}</p>#}
-{#                                {% else %}#}
-{#                                <p>{{ entry.body|truncatechars:128 }}</p>#}
-{#                                {% endif %}#}
-{#                                <p>#}
-{#                                    <span>作者：{{ entry.author }}</span>#}
-{#                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;发表时间：{{ entry.created_time }}</span>#}
-{#                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;浏览量：{{ entry.visiting }}</span>#}
-{#                                </p>#}
-{##}
-{#                            {% endfor %}#}
+
 
                         {#修改成动态分页#}
-                                {% for entry in entry_list %}
+                                {% for entry in entry_list_01 %}
                                     <li>
                                         <a href="#" class="news_pic fl"><img src="{{ entry.img.url }}"></a>
                                         <a href="{{ entry.get_absolute_url }}" class="news_title fl">{{ entry.title }}</a>
@@ -123,7 +104,7 @@
                                             <div class="source fl">
                                                 <span>作者：{{ entry.author }}</span>
                                             </div>
-                                            <div class="time fl">{{ entry.created_time|date:'Y-m-d' }}</div>
+                                            <div class="time fl">{{ entry.created_time }}</div>
                                         </div>
                                     </li>
                                 {% endfor %}
@@ -132,8 +113,8 @@
                             <!--/.pagination-->
                             <div id="paginator" class="pull-right">
                                     <ul class="pagination">
-                                    {%  if entry_list.has_previous %}
-                                        <li><a href="?page={{ entry_list.previous_page_number }}"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a></li>
+                                    {%  if entry_list_01.has_previous %}
+                                        <li><a href="?page={{ entry_list_01.previous_page_number }}"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a></li>
                                     {% endif %}
 
                                     {% if first %}
@@ -151,7 +132,7 @@
                                     {% endif %}
 
 
-                                    <li class="active"><a href="?page={{ entry_list.number }}">{{ entry_list.number }}</a></li>
+                                    <li class="active"><a href="?page={{ entry_list_01.number }}">{{ entry_list_01.number }}</a></li>
 
                                     {% if right %}
                                         {% for i in right %}
@@ -164,11 +145,11 @@
                                     {% endif %}
 
                                     {% if last %}
-                                        <li><a href="?page={{ entry_list.num_pages }}">{{ entry_list.num_pages }}</a></li>
+                                        <li><a href="?page={{ entry_list_01.num_pages }}">{{ entry_list_01.num_pages }}</a></li>
                                     {% endif %}
 
-                                    {% if entry_list.has_next %}
-                                        <li><a href="?page={{ entry_list.next_page_number }}">下一页<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                                    {% if entry_list_01.has_next %}
+                                        <li><a href="?page={{ entry_list_01.next_page_number }}">下一页<i class="glyphicon glyphicon-chevron-right"></i></a></li>
                                     {% endif %}
                                     </ul>
                                 </div>
@@ -192,7 +173,7 @@
                                 <ul class="list_con fl">
 
                                 {#修改成动态分页#}
-                                        {% for entry in entry_list %}
+                                        {% for entry in entry_list_02 %}
                                             <li>
                                                 <a href="#" class="news_pic fl"><img src="{{ entry.img.url }}"></a>
                                                 <a href="{{ entry.get_absolute_url }}" class="news_title fl">{{ entry.title }}</a>
@@ -201,7 +182,7 @@
                                                     <div class="source fl">
                                                         <span>作者：{{ entry.author }}</span>
                                                     </div>
-                                                    <div class="time fl">{{ entry.created_time|date:'Y-m-d' }}</div>
+                                                    <div class="time fl">{{ entry.created_time }}</div>
                                                 </div>
                                             </li>
                                         {% endfor %}
@@ -210,8 +191,8 @@
                                 <!--/.pagination-->
                                 <div id="paginator" class="pull-right">
                                     <ul class="pagination">
-                                    {%  if entry_list.has_previous %}
-                                        <li><a href="?page={{ entry_list.previous_page_number }}"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a></li>
+                                    {%  if entry_list_02.has_previous %}
+                                        <li><a href="?page={{ entry_list_02.previous_page_number }}"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a></li>
                                     {% endif %}
 
                                     {% if first %}
@@ -229,7 +210,7 @@
                                     {% endif %}
 
 
-                                    <li class="active"><a href="?page={{ entry_list.number }}">{{ entry_list.number }}</a></li>
+                                    <li class="active"><a href="?page={{ entry_list_02.number }}">{{ entry_list_02.number }}</a></li>
 
                                     {% if right %}
                                         {% for i in right %}
@@ -242,11 +223,11 @@
                                     {% endif %}
 
                                     {% if last %}
-                                        <li><a href="?page={{ entry_list.num_pages }}">{{ entry_list.num_pages }}</a></li>
+                                        <li><a href="?page={{ entry_list_02.num_pages }}">{{ entry_list_02.num_pages }}</a></li>
                                     {% endif %}
 
-                                    {% if entry_list.has_next %}
-                                        <li><a href="?page={{ entry_list.next_page_number }}">下一页<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                                    {% if entry_list_02.has_next %}
+                                        <li><a href="?page={{ entry_list_02.next_page_number }}">下一页<i class="glyphicon glyphicon-chevron-right"></i></a></li>
                                     {% endif %}
                                     </ul>
                                 </div>
