@@ -33,13 +33,13 @@
         <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#bbs">企业概况</a></li>
-                <li><a href="#html5">新闻中心</a></li>
-                <li><a href="#course">便民信息</a></li>
-                <li><a href="#app">园区指南</a></li>
-                <li><a href="#contact">党群建设</a></li>
-                <li><a href="#">公告栏</a></li>
+                <li><a href="{% url 'article:article_index' %}">首页</a></li>
+                <li><a href="{% url 'article:article_qiye' %}">企业概况</a></li>
+                <li><a href="{% url 'article:article_xinwen' %}">新闻中心</a></li>
+                <li><a href="{% url 'article:article_bianmin' %}">便民信息</a></li>
+                <li><a href="{% url 'article:article_yuanqu' %}">园区指南</a></li>
+                <li><a href="{% url 'article:article_dangqun' %}">党群建设</a></li>
+                <li><a href="{% url 'article:article_gonggao' %}">公告栏</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -290,14 +290,14 @@
 <script>
     $(function(){
         /*导航跳转效果插件*/
-        $('.nav').singlePageNav({
-            offset:70
-        });
-        /*小屏幕导航点击关闭菜单*/
-        $('.navbar-collapse a').click(function(){
-            $('.navbar-collapse').collapse('hide');
-        });
-        new WOW().init();
+{#        $('.nav').singlePageNav({#}
+{#            offset:70#}
+{#        });#}
+{#        /*小屏幕导航点击关闭菜单*/#}
+{#        $('.navbar-collapse a').click(function(){#}
+{#            $('.navbar-collapse').collapse('hide');#}
+{#        });#}
+{#        new WOW().init();#}
 
         //0120点击bbs4左边的li，动态切换右边的显示
         $(".bbsli").click(function () {

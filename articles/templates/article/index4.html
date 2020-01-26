@@ -33,12 +33,12 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'article:article_index' %}">首页</a></li>
-                <li><a href="#bbs">企业概况</a></li>
+                <li><a href="{% url 'article:article_qiye' %}">企业概况</a></li>
                 <li><a href="{% url 'article:article_xinwen' %}">新闻中心</a></li>
-                <li><a href="#course">便民信息</a></li>
-                <li><a href="#app">园区指南</a></li>
-                <li><a href="#contact">党群建设</a></li>
-                <li><a href="#">公告栏</a></li>
+                <li><a href="{% url 'article:article_bianmin' %}">便民信息</a></li>
+                <li><a href="{% url 'article:article_yuanqu' %}">园区指南</a></li>
+                <li><a href="{% url 'article:article_dangqun' %}">党群建设</a></li>
+                <li><a href="{% url 'article:article_gonggao' %}">公告栏</a></li>
             </ul>
         </div>
         <!--导航-->
