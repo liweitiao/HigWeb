@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 
@@ -24,7 +25,7 @@ def xinwen(request):
     page = request.GET.get('page', 1)
     entry_list, paginator = make_paginator(entries, page)
     page_data = pagination_data(paginator, page)
-    return render(request, 'article/新闻中心.html', locals())
+    return render(request, 'article/新闻中心2.html', locals())
 
 
 def xinwen2(request):
@@ -208,3 +209,94 @@ def category(request, category_id):
     entry_list, paginator = make_paginator(entries, page)
     page_data = pagination_data(paginator, page)
     return render(request, 'article/新闻中心.html', locals())
+
+
+# 种类id 页码 排序方式
+# restful api -> 请求一种资源
+# /list?type_id=种类id&page=页码&sort=排序方式
+# /list/种类id/页码/排序方式
+# /list/种类id/页码?sort=排序方式
+class ListView(View):
+    '''列表页'''
+    def get(self, request, type_id, page):
+        '''显示列表页'''
+        # 获取种类信息
+        # try:
+        #     type = GoodsType.objects.get(id=type_id)
+        # except GoodsType.DoesNotExist:
+        #     # 种类不存在
+        #     return redirect(reverse('goods:index'))
+        #
+        # # 获取商品的分类信息
+        # types = GoodsType.objects.all()
+
+        category = models.Category.objects.get(id=type_id)
+        entry_list = models.Entry.objects.filter(category=category)
+
+        # 获取排序的方式 # 获取分类商品的信息
+        # sort=default 按照默认id排序
+        # sort=price 按照商品价格排序
+        # sort=hot 按照商品销量排序
+        sort = request.GET.get('sort')
+        if not sort:
+            sort = 'default'
+        print(sort)
+        #
+        # if sort == 'price':
+        #     skus = GoodsSKU.objects.filter(type=type).order_by('price')
+        # elif sort == 'hot':
+        #     skus = GoodsSKU.objects.filter(type=type).order_by('-sales')
+        # else:
+        #     sort = 'default'
+        #     skus = GoodsSKU.objects.filter(type=type).order_by('-id')
+
+        # 对数据进行分页
+        paginator = Paginator(entry_list, 4)
+
+        # 获取第page页的内容
+        try:
+            page = int(page)
+        except Exception as e:
+            page = 1
+
+        if page > paginator.num_pages:
+            page = 1
+
+        # 获取第page页的Page实例对象
+        # skus_page = paginator.page(page)
+        entry_list_page = paginator.page(page)
+
+
+        # 1.总页数小于5页，页面上显示所有页码
+        # 2.如果当前页是前3页，显示1-5页
+        # 3.如果当前页是后3页，显示后5页
+        # 4.其他情况，显示当前页的前2页，当前页，当前页的后2页
+        num_pages = paginator.num_pages
+        if num_pages < 5:
+            pages = range(1, num_pages+1)
+        elif page <= 3:
+            pages = range(1, 6)
+        elif num_pages - page <= 2:
+            pages = range(num_pages-4, num_pages+1)
+        else:
+            pages = range(page-2, page+3)
+
+        # 获取新品信息
+        # new_skus = GoodsSKU.objects.filter(type=type).order_by('-create_time')[:2]
+
+
+        # 组织模板上下文
+        # context = {'type':type, 'types':types,
+        #            'skus_page':skus_page,
+        #            # 'new_skus':new_skus,
+        #            'pages':pages,
+        #            'sort':sort}
+
+        context = {'entry_list_page': entry_list_page,
+                   # 'new_skus':new_skus,
+                   'pages': pages,
+                   'sort': sort,
+                   'category':category}
+
+        # 使用模板
+        return render(request, 'article/新闻中心3.html', context)
