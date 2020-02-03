@@ -286,17 +286,143 @@ class ListView(View):
 
 
         # 组织模板上下文
-        # context = {'type':type, 'types':types,
-        #            'skus_page':skus_page,
-        #            # 'new_skus':new_skus,
-        #            'pages':pages,
-        #            'sort':sort}
-
         context = {'entry_list_page': entry_list_page,
-                   # 'new_skus':new_skus,
                    'pages': pages,
                    'sort': sort,
                    'category':category}
 
         # 使用模板
         return render(request, 'article/新闻中心3.html', context)
+
+
+class BianminListView(View):
+    '''列表页'''
+    def get(self, request, type_id, page):
+        category = models.Category.objects.get(id=type_id)
+        entry_list = models.Entry.objects.filter(category=category)
+        sort = request.GET.get('sort')
+        if not sort:
+            sort = 'default'
+        print(sort)
+
+        # 对数据进行分页
+        paginator = Paginator(entry_list, 4)
+
+        # 获取第page页的内容
+        try:
+            page = int(page)
+        except Exception as e:
+            page = 1
+
+        if page > paginator.num_pages:
+            page = 1
+
+        entry_list_page = paginator.page(page)
+
+        num_pages = paginator.num_pages
+        if num_pages < 5:
+            pages = range(1, num_pages+1)
+        elif page <= 3:
+            pages = range(1, 6)
+        elif num_pages - page <= 2:
+            pages = range(num_pages-4, num_pages+1)
+        else:
+            pages = range(page-2, page+3)
+
+        # 组织模板上下文
+        context = {'entry_list_page': entry_list_page,
+                   'pages': pages,
+                   'sort': sort,
+                   'category':category}
+
+        # 使用模板
+        return render(request, 'article/便民信息2.html', context)
+
+
+class DangqunListView(View):
+    '''列表页'''
+    def get(self, request, type_id, page):
+        category = models.Category.objects.get(id=type_id)
+        entry_list = models.Entry.objects.filter(category=category)
+        sort = request.GET.get('sort')
+        if not sort:
+            sort = 'default'
+        print(sort)
+
+        # 对数据进行分页
+        paginator = Paginator(entry_list, 4)
+
+        # 获取第page页的内容
+        try:
+            page = int(page)
+        except Exception as e:
+            page = 1
+
+        if page > paginator.num_pages:
+            page = 1
+
+        entry_list_page = paginator.page(page)
+
+        num_pages = paginator.num_pages
+        if num_pages < 5:
+            pages = range(1, num_pages+1)
+        elif page <= 3:
+            pages = range(1, 6)
+        elif num_pages - page <= 2:
+            pages = range(num_pages-4, num_pages+1)
+        else:
+            pages = range(page-2, page+3)
+
+        # 组织模板上下文
+        context = {'entry_list_page': entry_list_page,
+                   'pages': pages,
+                   'sort': sort,
+                   'category':category}
+
+        # 使用模板
+        return render(request, 'article/党群建设2.html', context)
+
+
+class GonggaoListView(View):
+    '''列表页'''
+
+    def get(self, request, type_id, page):
+        category = models.Category.objects.get(id=type_id)
+        entry_list = models.Entry.objects.filter(category=category)
+        sort = request.GET.get('sort')
+        if not sort:
+            sort = 'default'
+        print(sort)
+
+        # 对数据进行分页
+        paginator = Paginator(entry_list, 4)
+
+        # 获取第page页的内容
+        try:
+            page = int(page)
+        except Exception as e:
+            page = 1
+
+        if page > paginator.num_pages:
+            page = 1
+
+        entry_list_page = paginator.page(page)
+
+        num_pages = paginator.num_pages
+        if num_pages < 5:
+            pages = range(1, num_pages + 1)
+        elif page <= 3:
+            pages = range(1, 6)
+        elif num_pages - page <= 2:
+            pages = range(num_pages - 4, num_pages + 1)
+        else:
+            pages = range(page - 2, page + 3)
+
+        # 组织模板上下文
+        context = {'entry_list_page': entry_list_page,
+                   'pages': pages,
+                   'sort': sort,
+                   'category': category}
+
+        # 使用模板
+        return render(request, 'article/公告栏2.html', context)
