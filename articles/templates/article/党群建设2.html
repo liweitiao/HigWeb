@@ -28,13 +28,13 @@
         <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'article:article_index' %}">首页</a></li>
-                <li><a href="{% url 'article:article_qiye' %}">企业概况</a></li>
-                <li><a href="{% url 'article:article_xinwen' %}">新闻中心</a></li>
-                <li><a href="{% url 'article:article_bianmin' %}">便民信息</a></li>
-                <li><a href="{% url 'article:article_yuanqu' %}">园区指南</a></li>
-                <li><a href="{% url 'article:article_dangqun' %}">党群建设</a></li>
-                <li><a href="{% url 'article:article_gonggao' %}">公告栏</a></li>
+                <li><a href="http://127.0.0.1:8000/article">首页</a></li>
+                <li><a href="http://127.0.0.1:8000/article/qiye">企业概况</a></li>
+                <li><a href="http://127.0.0.1:8000/article/list/1/1">新闻中心</a></li>
+                <li><a href="http://127.0.0.1:8000/article/bianminlist/3/1">便民信息</a></li>
+                <li><a href="http://127.0.0.1:8000/article/yuanqu">园区指南</a></li>
+                <li><a href="http://127.0.0.1:8000/article/dangqunlist/6/1">党群建设</a></li>
+                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -123,17 +123,17 @@
                             <!--/.pagination-->
                             <div class="pagenation">
                                 {% if entry_list_page.has_previous %}
-                                <a href="{% url 'article:list' category.id entry_list_page.previous_page_number %}?sort={{ sort }}"><上一页</a>
+                                <a href="{% url 'article:dangqunlist' category.id entry_list_page.previous_page_number %}?sort={{ sort }}"><上一页</a>
                                 {% endif %}
                                 {% for pindex in pages %}
                                     {% if pindex == entry_list_page.number %}
-                                        <a href="{% url 'article:bianminlist' category.id pindex %}?sort={{ sort }}" class="active">{{ pindex }}</a>
+                                        <a href="{% url 'article:dangqunlist' category.id pindex %}?sort={{ sort }}" class="active">{{ pindex }}</a>
                                     {% else %}
-                                        <a href="{% url 'article:bianminlist' category.id pindex %}?sort={{ sort }}">{{ pindex }}</a>
+                                        <a href="{% url 'article:dangqunlist' category.id pindex %}?sort={{ sort }}">{{ pindex }}</a>
                                     {% endif %}
                                 {% endfor %}
                                 {% if entry_list_page.has_next %}
-                                <a href="{% url 'article:bianminlist' category.id entry_list_page.next_page_number %}?sort={{ sort }}">下一页></a>
+                                <a href="{% url 'article:dangqunlist' category.id entry_list_page.next_page_number %}?sort={{ sort }}">下一页></a>
                                 {% endif %}
                             </div>
 

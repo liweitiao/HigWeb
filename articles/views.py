@@ -419,10 +419,14 @@ class GonggaoListView(View):
             pages = range(page - 2, page + 3)
 
         # 组织模板上下文
+        # print(entry_list_page)
         context = {'entry_list_page': entry_list_page,
                    'pages': pages,
                    'sort': sort,
                    'category': category}
 
         # 使用模板
+        print(entry_list_page)
+        print(category)
+        print(pages)
         return render(request, 'article/公告栏2.html', context)

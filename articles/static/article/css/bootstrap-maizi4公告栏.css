@@ -20,7 +20,7 @@ body{
 .navbar-default .navbar-brand {
     font-size: 30px;
     font-weight: bold;
-    color: #40D2B1;
+    color: #009933;
     height: 70px;
     line-height: 35px;
 }
@@ -100,6 +100,19 @@ body{
     color: #0f0f0f;
     text-decoration: none;
 }
+
+/*0311修改*/
+#bbs4 .col-md-2 .outer .list-group a{
+    font-size: 16px;
+    color: #0f0f0f;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    padding: 9px;
+}
+
 #bbs4 .col-md-2 .outer .list-group .active{
     background-color: #009933;
     color: white;
@@ -139,6 +152,24 @@ body{
     line-height: 28px;
     overflow: auto;
 }
+
+/*0311修改*/
+#bbs4 .pagenation{
+    text-align: center;
+
+}
+/*0311修改*/
+#bbs4 .pagenation a{
+    text-align: center;
+    /*color: #0f0f0f;*/
+    margin: 4px;
+    font-size: 14px;
+    border: 1px solid;
+    padding: 0 6px;
+    text-decoration: none;
+}
+
+
 /*新闻列表*/
 .conter_con{
     width:860px;
@@ -231,8 +262,11 @@ body{
     color:#999;
     background:url(../images/clock.png) left center no-repeat;
 }
-
-
+/*0311修改*/
+#bbs4 .active{
+    background-color: #009933;
+    color: white;
+}
 
 
 /*HTML5 + bootstrap*/

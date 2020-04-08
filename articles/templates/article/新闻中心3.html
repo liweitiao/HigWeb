@@ -33,13 +33,13 @@
         <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#bbs">企业概况</a></li>
-                <li><a href="#html5">新闻中心</a></li>
-                <li><a href="#course">便民信息</a></li>
-                <li><a href="#app">园区指南</a></li>
-                <li><a href="#contact">党群建设</a></li>
-                <li><a href="#">公告栏</a></li>
+                <li><a href="http://127.0.0.1:8000/article">首页</a></li>
+                <li><a href="http://127.0.0.1:8000/article/qiye">企业概况</a></li>
+                <li><a href="http://127.0.0.1:8000/article/list/1/1">新闻中心</a></li>
+                <li><a href="http://127.0.0.1:8000/article/bianminlist/3/1">便民信息</a></li>
+                <li><a href="http://127.0.0.1:8000/article/yuanqu">园区指南</a></li>
+                <li><a href="http://127.0.0.1:8000/article/dangqunlist/6/1">党群建设</a></li>
+                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -54,7 +54,6 @@
 
 <!--home-->
 <section id="home">
-{#    <img src="images/aboutus.jpg" class="img-responsive" alt="企业概况图片"/>#}
     <img src="{% static 'article/images/aboutus.jpg' %}" class="img-responsive" alt="企业概况图片"/>
 </section>
 <!--home-->
@@ -104,7 +103,7 @@
                             <ul class="list_con fl">
 
 
-                        {#修改成动态分页#}
+                                {#修改成动态分页#}
                                 {% for entry in entry_list_page %}
                                     <li>
                                         <a href="#" class="news_pic fl"><img src="{{ entry.img.url }}"></a>
@@ -124,7 +123,7 @@
                             <!--/.pagination-->
                             <div class="pagenation">
                                 {% if entry_list_page.has_previous %}
-                                <a href="{% url 'article:list' category.id entry_list_page.previous_page_number %}?sort={{ sort }}"><上一页</a>
+                                <a href="{% url 'article:list' category.id entry_list_page.previous_page_number %}?sort={{ sort }}">上一页</a>
                                 {% endif %}
                                 {% for pindex in pages %}
                                     {% if pindex == entry_list_page.number %}
@@ -134,11 +133,9 @@
                                     {% endif %}
                                 {% endfor %}
                                 {% if entry_list_page.has_next %}
-                                <a href="{% url 'article:list' category.id entry_list_page.next_page_number %}?sort={{ sort }}">下一页></a>
+                                <a href="{% url 'article:list' category.id entry_list_page.next_page_number %}?sort={{ sort }}">下一页</a>
                                 {% endif %}
                             </div>
-
-
 
                         </div>
                     </div>
@@ -173,33 +170,9 @@
 <!--footer-->
 
 
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="{% static 'article/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
-<script src="{% static 'article/js/wow.min.js' %}"></script>
-<script>
-    $(function(){
-        /*导航跳转效果插件*/
-        $('.nav').singlePageNav({
-            offset:70
-        });
-        /*小屏幕导航点击关闭菜单*/
-        $('.navbar-collapse a').click(function(){
-            $('.navbar-collapse').collapse('hide');
-        });
-        new WOW().init();
-
-        //0120点击bbs4左边的li，动态切换右边的显示
-{#        $("#bbsli>a").click(function () {#}
-{#        //切换导航的li#}
-{#           $(this).addClass("active").siblings().removeClass("active");#}
-{#        //找到当前li的下标#}
-{#            var idx = $(this).index();#}
-{#            alert(idx);#}
-{#        //切换bbs右边的显示#}
-{#            $(".bbsRight").eq(idx).addClass("selected").siblings().removeClass("selected");#}
-{#        });#}
-    })
-</script>
+{#<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>#}
+{#<script src="{% static 'article/js/bootstrap.min.js' %}"></script>#}
+{#<script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>#}
+{#<script src="{% static 'article/js/wow.min.js' %}"></script>#}
 </body>
 </html>

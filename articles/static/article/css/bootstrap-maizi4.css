@@ -20,7 +20,7 @@ body{
 .navbar-default .navbar-brand {
     font-size: 30px;
     font-weight: bold;
-    color: #40D2B1;
+    color: #009933;
     height: 70px;
     line-height: 35px;
 }
@@ -271,7 +271,7 @@ body{
 }
 
 
-/*0103  0107修改*/
+/*0103  0107 0311修改*/
 #bbs4 .col-md-7 .inner2 .col-md-6 img{
     margin: 10px 0;
     /*height: 230px;*/
@@ -279,21 +279,26 @@ body{
     /*vertical-align: middle;*/
     max-height:100%;
     max-width: 100%;
+    min-height: 220px;
     /*display: inline-block;*/
 }
 
 #bbs4 h3{
     font-weight: bold;
 }
+/*0311修改*/
 #bbs4 .inner2 p{
     margin-top: 10px;
     font-size: 12px;
     line-height: 22px;
+    max-height: 220px;
+    display: block;
+    overflow: auto;
 }
 
 
 /*bbs6*/
-/*0107修改*/
+/*0107 0311修改*/
 #bbs6 .outer{
     height: 280px;
     background-color: #efefef;
@@ -347,7 +352,7 @@ body{
     color: #212121;
     text-decoration: none;
 }
-/*0103修改*/
+/*0103修改 0311*/
 #bbs6 .col-md-7 .inner2 .col-md-6 img{
     margin: 10px 0;
     /*height: 230px;*/
@@ -355,6 +360,7 @@ body{
     max-height:180%;
     max-width: 100%;
     display: inline-block;
+    min-height: 220px;
 }
 #bbs6 h3{
     font-weight: bold;
@@ -364,6 +370,72 @@ body{
     font-size: 12px;
     line-height: 22px;
 }
+/*0311修改*/
+#bbs6 .inner3{
+    overflow: auto;
+    max-height: 240px;
+}
+
+
+/*价格行情　　0408修改*/
+.tablebox {
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    /*width: 200px;*/
+    /*margin: 100px auto;*/
+    /*background-color: rgba(6,26,103,1);*/
+}
+
+.tbl-header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.tbl-body {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tablebox table {
+    width: 100%;
+}
+
+.tablebox table th,
+.tablebox table td {
+    font-size: 12px;
+    /*color: #7ca6f4;*/
+    line-height: 30px;
+    text-align: center;
+}
+
+.tablebox table tr th {
+    /*background-color: #9d9d9d;*/
+    background-color: #d5d5d5;
+    cursor: pointer;
+    color: white;
+}
+
+.tablebox table tr td {
+    background-color: transparent;
+}
+
+.tbl-body tr:nth-child(even) td,.tbl-body1 tr:nth-child(even) td {
+    /*background-color: rgba(31, 31, 156, .5);*/
+}
+
+.tablebox table tr td span,
+.tablebox table tr td span {
+    font-size: 12px;
+}
+
+
+
 
 
 

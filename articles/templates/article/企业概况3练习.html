@@ -30,13 +30,13 @@
         <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'article:article_index' %}">首页</a></li>
-                <li><a href="{% url 'article:article_qiye' %}">企业概况</a></li>
-                <li><a href="{% url 'article:article_xinwen' %}">新闻中心</a></li>
-                <li><a href="{% url 'article:article_bianmin' %}">便民信息</a></li>
-                <li><a href="{% url 'article:article_yuanqu' %}">园区指南</a></li>
-                <li><a href="{% url 'article:article_dangqun' %}">党群建设</a></li>
-                <li><a href="{% url 'article:article_gonggao' %}">公告栏</a></li>
+                <li><a href="http://127.0.0.1:8000/article">首页</a></li>
+                <li><a href="http://127.0.0.1:8000/article/qiye">企业概况</a></li>
+                <li><a href="http://127.0.0.1:8000/article/list/1/1">新闻中心</a></li>
+                <li><a href="http://127.0.0.1:8000/article/bianminlist/3/1">便民信息</a></li>
+                <li><a href="http://127.0.0.1:8000/article/yuanqu">园区指南</a></li>
+                <li><a href="http://127.0.0.1:8000/article/dangqunlist/6/1">党群建设</a></li>
+                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -52,7 +52,7 @@
 <!--home-->
 <section id="home">
 {#    <img src="images/aboutus.jpg" class="img-responsive" alt="企业概况图片"/>#}
-    <img src="{% static 'article/images/aboutus.jpg' %}" class="img-responsive" alt="企业概况图片"/>
+    <img src="{% static 'article/images/news-banner.jpg' %}" class="img-responsive" alt="企业概况图片"/>
 </section>
 <!--home-->
 
@@ -80,7 +80,6 @@
                         <!--<li style="display: none">发展历程</li>-->
                         <li class="bbsli active">企业简介</li>
                         <li class="bbsli">服务理念</li>
-                        <li class="bbsli">组织架构</li>
                         <li class="bbsli">园区3D图</li>
 
                         <!--<li class="active"><a href="#">企业简介</a></li>-->
@@ -96,7 +95,7 @@
             </div>
 
             <!--企业简介-->
-            <div class="col-md-10 col-xs-10  bbsRight">
+            <div class="col-md-10 col-xs-10  bbsRight selected">
                 <div class="outer">
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
@@ -144,7 +143,7 @@
             </div>
 
             <!--服务理念-->
-            <div class="col-md-10 col-xs-10  bbsRight selected">
+            <div class="col-md-10 col-xs-10  bbsRight">
                 <div class="outer">
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
@@ -171,33 +170,6 @@
                 </div>
             </div>
 
-            <!--组织架构-->
-            <div class="col-md-10 col-xs-10  bbsRight">
-                <div class="outer">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        <div class="inner">
-                            <span class="right">组织架构</span>
-                        </div>
-                    </div>
-                    <!--<div class="col-md-1"></div>-->
-                    <div class="col-md-12">
-                        <P>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 深圳海吉星国际农产品物流园（以下称“深圳海吉星”）由深圳国有上市公司深圳市农产品股份有限公司投资建设，是深圳市政府规划的唯一的一级农产品批发市场，是国家发改委国债项目、深圳市重大建设项目，深圳市“十一五”规划重点项目。项目位于深圳市龙岗区平湖物流基地内，一期占地面积30.3万平方米，规划建筑面积82万平方米，投资总额18亿元。
-    深圳海吉星以“绿色交易”为核心理念，创新食品安全管控模式，在行业内首家引进第三方实验室独立开展检测，同时研发“农产品食品安全风险地图”加强风险预警，实施RFID物联网项目构建全程可追溯体系；以及通过全面的信息支持新模式、高效的管理交易新模式、周到的客户服务新模式、绿色的能源利用新模式打造安全型、信息型、物流型、服务型、低碳型为一体的绿色市场。
-    深圳海吉星项目聘请法国Rungis公司作为规划咨询单位，结合中国国情，引入国际化的规划设计理念，已成为我国农产品批发市场行业升级改造的样板，成为农产品进入深圳的物流枢纽中心，成为深港两地2200万人口“菜篮子”供应的重要保障，起到平抑价格、促进农产品流通、把控食品安全、促进食品进出口贸易增长、推广进口食品平价消费、带动农业及相关产业发展、促进就业的作用，并且为政府决策提供精确的数据支持，成为深圳产业升级转型的典范。项目功能分区主要包括交易区、加工配送区、仓储区及商业生活配套区及农产品智慧中心；交易品类主要为水果、蔬菜、干货、冻品等；规划交易规模为年交易量600万吨，年交易额300亿元，日均车流量2万车次，日均人流量为6—8万人。
-    深圳海吉星已于2011年9月29日正式启用，目前，蔬菜、冻品、水果、干货等交易区已全面运营，形成了购销两旺的良好局面。其中，先行启动的蔬菜交易区，日均交易量4500多吨，日均交易额1300万元，比布吉农批市场交易量增长20%以上，而价格整体呈平稳略有下降趋势；2012年3月9日启用的冻品交易区主要经营品类有综合冻品、海产品及深加工肉制品等，启用至今交易量稳步上升；2012年3月16日启动的水果交易区是仅次于蔬菜经营区的第二大核心交易品类，有标准化南果、北果和进口水果等，日均交易量约1500—2000吨；2012年5月24日启动的干货、茶叶交易区共有500多个商铺，是深圳市规模最大的干货批发基地。
-    深圳海吉星现阶段有来自全国各地的经销商2000多家，汇集全国及世界各地8000多种农产品，其中名、优、特、新农产品达800多个，目前经营的蔬菜、水果、冻品、干货分别占深圳市民消费量的85%、90%、90%和60%以上，不但满足了深港两地居民的菜篮子所需，而且辐射整个华南地区乃至全国。
-    2011年10月21日，由深圳市农产品股份有限公司承办的世界批发市场联合大会（WUWM），在深圳海吉星现场发布了“深圳宣言”，很好地向世界展示了中国农产品批发市场发展情况和未来方向，极大地提升了中国、特别是深圳的国际形象。2012年9月14日，深圳海吉星荣获世界批发市场联合会颁授2012 年度市场大奖银奖，这是全中国农产品批发市场首次获得如此殊荣的国际大奖，标志着深圳海吉星的硬件建设及管理服务已达到国际先进水平。
-    深圳海吉星将通过践行绿色交易，提高管理水平和运营效率，为广大深港市民提供更多品种丰富、物美价廉的农产品，成为中国最先进的农产品交易大平台和深港最可靠、最放心的大菜篮子！
-                        </P>
-
-
-                    </div>
-
-
-                </div>
-            </div>
 
             <!--园区3d图-->
             <div class="col-md-10 col-xs-10  bbsRight">
