@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import View
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
+from django.db import connection
+from django.http import JsonResponse
 
 from . import models
 
@@ -10,6 +12,19 @@ from . import models
 
 def index(request):
     return render(request, 'article/index4.html', locals())
+
+
+def price(request):
+    print(111111111111111111111111111111111111111111)
+    # 获取游标对象
+    cursor = connection.cursor()
+    # 拿到游标对象后执行sql语句
+    cursor.execute("select * from news_price")
+    # 获取所有的数据
+    rows = cursor.fetchall()
+    # 遍历查询到的数据
+
+    return JsonResponse(rows, safe=False)
 
 
 def detail(request, article_id):
@@ -64,6 +79,10 @@ def bianmin(request):
 
 def yuanqu(request):
     return render(request, 'article/园区指南.html', locals())
+
+
+def fupin(request):
+    return render(request, 'article/扶贫中心.html', locals())
 
 
 def dangqun(request):

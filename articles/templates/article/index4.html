@@ -43,7 +43,7 @@
                 <li><a href="http://127.0.0.1:8000/article/yuanqu">园区指南</a></li>
                 <li><a href="http://127.0.0.1:8000/article/dangqunlist/6/1">党群建设</a></li>
                 <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>
-                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>
+                <li><a href="http://127.0.0.1:8000/article/fupin">扶贫中心</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -334,81 +334,258 @@
 <!--footer-->
 
 
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+{#<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>#}
+<script src="{% static 'article/js/jquery-1.12.4.js' %}"></script>
 <script src="{% static 'article/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
 <script src="{% static 'article/js/wow.min.js' %}"></script>
 <script>
 
-        {#    价格行情#}
+
+$(function () {
+
+    var Items = '';
+
+    $.ajax({
+    type: "get",
+    url: "article/price",
+    // timeout 可以设置超时时间, 表示如果 2s 内, 响应还没有回来, 就认为超时
+    timeout: 2000,
+    // 发送ajax前,会调用的函数,
+    // 如果这个函数返回 false,(注意: 必须返回false) 这次请求就不发送了
+    // 一般 beforeSend 中用于表单校验
+
+    // 成功的回调函数
+    success: function (info) {
+{#        console.log(info)#}
+        Items = info
         var MyMarhq = '';
-        clearInterval(MyMarhq);
-        $('.tbl-body tbody').empty();
-        $('.tbl-header tbody').empty();
-        var str = '';
-        var Items = [{"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米玉米玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},
-            {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"}
-        ];
+    clearInterval(MyMarhq);
+    $('.tbl-body tbody').empty();
+    $('.tbl-header tbody').empty();
+    var str = '';
+{#    var Items = [{"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米玉米玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"}#}
+{#    ];#}
 
-        $.each(Items, function (i, item) {
-            str = '<tr>' +
+    $.each(Items, function (i, item) {
+        console.log(item);
+        str = '<tr>' +
 
-                '<td>' + item.City + '</td>' +
-                '<td>' + item.SaleIncome + '</td>' +
-                '<td>' + item.SalePlan + '</td>' +
-                '<td>' + item.PlanFinish + '</td>' +
-                '</tr>'
+            '<td>' + item[1] + '</td>' +
+            '<td>' + item[2] + '</td>' +
+            '<td>' + item[3] + '</td>' +
+            '<td>' + item[4] + '</td>' +
+            '</tr>'
 
-            $('.tbl-body tbody').append(str);
-            $('.tbl-header tbody').append(str);
-        });
+        $('.tbl-body tbody').append(str);
+        $('.tbl-header tbody').append(str);
+    });
 
-        if (Items.length > 10) {
-            $('.tbl-body tbody').html($('.tbl-body tbody').html() + $('.tbl-body tbody').html());
-            $('.tbl-body').css('top', '0');
-            var tblTop = 0;
-            var speedhq = 50; // 数值越大越慢
-            var outerHeight = $('.tbl-body tbody').find("tr").outerHeight();
+    if (Items.length > 3) {
+        $('.tbl-body tbody').html($('.tbl-body tbody').html() + $('.tbl-body tbody').html());
+        $('.tbl-body').css('top', '0');
+        var tblTop = 0;
+        var speedhq = 50; // 数值越大越慢
+        var outerHeight = $('.tbl-body tbody').find("tr").outerHeight();
 
-            function Marqueehq() {
-                if (tblTop <= -outerHeight * Items.length) {
-                    tblTop = 0;
-                } else {
-                    tblTop -= 1;
-                }
-                $('.tbl-body').css('top', tblTop + 'px');
+        function Marqueehq() {
+            if (tblTop <= -outerHeight * Items.length) {
+                tblTop = 0;
+            } else {
+                tblTop -= 1;
             }
-
-            MyMarhq = setInterval(Marqueehq, speedhq);
-
-            // 鼠标移上去取消事件
-            $(".tbl-header tbody").hover(function () {
-                clearInterval(MyMarhq);
-            }, function () {
-                clearInterval(MyMarhq);
-                MyMarhq = setInterval(Marqueehq, speedhq);
-            })
+            $('.tbl-body').css('top', tblTop + 'px');
         }
+
+        MyMarhq = setInterval(Marqueehq, speedhq);
+
+        // 鼠标移上去取消事件
+        $(".tbl-header tbody").hover(function () {
+            clearInterval(MyMarhq);
+        }, function () {
+            clearInterval(MyMarhq);
+            MyMarhq = setInterval(Marqueehq, speedhq);
+        })
+    }
+
+
+
+
+    },
+    // 失败的回调函数
+    error: function () {
+        alert("服务器繁忙");
+    },
+    // 不管成功还是失败都会调用的函数
+    complete: function () {
+        console.log("不管成功还是失败都会调用的 complete");
+    }
+});
+
+
         {#    价格行情#}
+    var MyMarhq = '';
+    clearInterval(MyMarhq);
+    $('.tbl-body tbody').empty();
+    $('.tbl-header tbody').empty();
+    var str = '';
+{#    var Items = [{"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米玉米玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"}#}
+{#    ];#}
+
+    $.each(Items, function (i, item) {
+        console.log(item);
+        str = '<tr>' +
+
+            '<td>' + item[1] + '</td>' +
+            '<td>' + item[2] + '</td>' +
+            '<td>' + item[3] + '</td>' +
+            '<td>' + item[4] + '</td>' +
+            '</tr>'
+
+        $('.tbl-body tbody').append(str);
+        $('.tbl-header tbody').append(str);
+    });
+
+    if (Items.length > 10) {
+        $('.tbl-body tbody').html($('.tbl-body tbody').html() + $('.tbl-body tbody').html());
+        $('.tbl-body').css('top', '0');
+        var tblTop = 0;
+        var speedhq = 50; // 数值越大越慢
+        var outerHeight = $('.tbl-body tbody').find("tr").outerHeight();
+
+        function Marqueehq() {
+            if (tblTop <= -outerHeight * Items.length) {
+                tblTop = 0;
+            } else {
+                tblTop -= 1;
+            }
+            $('.tbl-body').css('top', tblTop + 'px');
+        }
+
+        MyMarhq = setInterval(Marqueehq, speedhq);
+
+        // 鼠标移上去取消事件
+        $(".tbl-header tbody").hover(function () {
+            clearInterval(MyMarhq);
+        }, function () {
+            clearInterval(MyMarhq);
+            MyMarhq = setInterval(Marqueehq, speedhq);
+        })
+    }
+    {#    价格行情#}
+
+
+    {#    价格行情2#}
+{#    var MyMarhq = '';#}
+{#    clearInterval(MyMarhq);#}
+{#    $('.tbl-body tbody').empty();#}
+{#    $('.tbl-header tbody').empty();#}
+{#    var str = '';#}
+{#    var Items = [{"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米玉米玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
+{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"}#}
+{#    ];#}
+{##}
+{#    $.each(Items, function (i, item) {#}
+{#        str = '<tr>' +#}
+{##}
+{#            '<td>' + item.City + '</td>' +#}
+{#            '<td>' + item.SaleIncome + '</td>' +#}
+{#            '<td>' + item.SalePlan + '</td>' +#}
+{#            '<td>' + item.PlanFinish + '</td>' +#}
+{#            '</tr>'#}
+{##}
+{#        $('.tbl-body tbody').append(str);#}
+{#        $('.tbl-header tbody').append(str);#}
+{#    });#}
+{##}
+{#    if (Items.length > 10) {#}
+{#        $('.tbl-body tbody').html($('.tbl-body tbody').html() + $('.tbl-body tbody').html());#}
+{#        $('.tbl-body').css('top', '0');#}
+{#        var tblTop = 0;#}
+{#        var speedhq = 50; // 数值越大越慢#}
+{#        var outerHeight = $('.tbl-body tbody').find("tr").outerHeight();#}
+{##}
+{#        function Marqueehq() {#}
+{#            if (tblTop <= -outerHeight * Items.length) {#}
+{#                tblTop = 0;#}
+{#            } else {#}
+{#                tblTop -= 1;#}
+{#            }#}
+{#            $('.tbl-body').css('top', tblTop + 'px');#}
+{#        }#}
+{##}
+{#        MyMarhq = setInterval(Marqueehq, speedhq);#}
+{##}
+{#        // 鼠标移上去取消事件#}
+{#        $(".tbl-header tbody").hover(function () {#}
+{#            clearInterval(MyMarhq);#}
+{#        }, function () {#}
+{#            clearInterval(MyMarhq);#}
+{#            MyMarhq = setInterval(Marqueehq, speedhq);#}
+{#        })#}
+{#    }#}
+    {#    价格行情2#}
+
+})
 
 
 </script>

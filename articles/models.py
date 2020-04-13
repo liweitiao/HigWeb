@@ -66,3 +66,18 @@ class Entry(models.Model):
         ordering = ['-created_time']
         verbose_name = "文章"
         verbose_name_plural = "文章"
+
+
+class Price(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=64, null=False, verbose_name='品名')
+    price = models.CharField(max_length=8, null=False, verbose_name='价格')
+    unit = models.CharField(max_length=4, null=False, verbose_name='单位')
+    create_time = models.DateField(auto_now_add=True, verbose_name='创建时间')
+
+    class Meta:
+        # 指定表名
+        db_table = 'news_price'
+
+        verbose_name = '价格表'
+        verbose_name_plural = verbose_name
