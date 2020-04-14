@@ -2,7 +2,7 @@ body{
     font-family: 'Microsoft YaHei', sans-serif;
 }
 .mai-icon{
-    background: #009933;
+    background: rgb(64, 210, 177);
     color: #fff;
     border-radius: 50%;
     width: 40px;
@@ -73,232 +73,99 @@ body{
     /*height: 280px;*/
     /*background-color: #efefef;*/
     /*overflow: auto;*/
-    margin-top: 10px;
-}
-#bbs4 .inner{
-    height: 40px;
-    padding-top: 5px;
-    border-bottom: 1px solid #009933;
-}
-#bbs4 .col-md-2 .inner .left{
-    font-size: 18px;
-    font-weight: bold;
-    color: #009933;
-    /*margin-left: 15px;*/
-}
-#bbs4 .col-md-2{
-    padding: 5px;
-}
-
-#bbs4 .col-md-2 .outer .list-group{
     margin-top: 20px;
 }
-#bbs4 .col-md-2 .outer .list-group li{
-    list-style: none;
-    width: 100%;
-    height: 40px;
-    display: inline-block;
-    text-align: center;
-    overflow: hidden;
-    padding: 6px;
-}
-#bbs4 .col-md-2 .outer .list-group li a{
-    font-size: 16px;
-    color: #0f0f0f;
-    text-decoration: none;
+#bbs4 .inner{
+    /*height: 60px;*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #1b6d85;
 }
 
-/*0311修改*/
-#bbs4 .col-md-2 .outer .list-group a{
-    font-size: 16px;
-    color: #0f0f0f;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    text-align: center;
-    height: 40px;
-    padding: 9px;
-}
-
-#bbs4 .col-md-2 .outer .list-group .active{
-    background-color: #009933;
-    color: white;
-}
-#bbs4 .col-md-2 .outer .list-group li:hover{
-    background-color: #009933;
-    color: white;
-}
-#bbs4 .col-md-2 .outer .list2{
-    background-color: #efefef;
-}
-
-#bbs4 .col-md-10 .inner{
-    text-align: center;
-}
-#bbs4 .col-md-10 .inner .right{
+#bbs4 .outer .abstract{
+    /*height: 60px;*/
+    margin-left:8%;
+    margin-top: 20px;
+    padding: 4%;
+    background-color: #F5F5F5;
+    text-align: left;
     font-size: 18px;
-    font-weight: bold;
+
+}
+
+
+
+#bbs4 .col-md-12 .inner{
+    text-align: center;
+}
+#bbs4 .col-md-12 .inner .right{
+    font-size: 26px;
+    /*font-weight: bold;*/
+    text-align: center;
+    /*color: #009933;*/
+    color: #1b6d85;
+    /*margin-left: 15px;*/
+}
+#bbs4 .col-md-12 .inner .right02{
+    font-size: 18px;
+    /*font-weight: bold;*/
     text-align: center;
     /*color: #009933;*/
     /*margin-left: 15px;*/
+    color: gainsboro;
 }
 
-#bbs4 .col-md-10 .col-md-10{
+#bbs4 .col-md-12 .col-md-10{
     padding: 5px;
     /*height: 500px;*/
 }
-#bbs4 .col-md-10 .outer{
-    height: 820px;
-    background-color: #efefef;
-}
-#bbs4 .col-md-10 .outer .col-md-11{
-    /*height: 820px;*/
-    margin: 20px 40px;
-    /*background-color: #009933;*/
-    padding: 0px;
-    line-height: 28px;
+#bbs4 .col-md-12 .outer{
+    min-height: 800px;
+    background-color: #FAFAFA;
     overflow: auto;
 }
+#bbs4 .col-md-12 .outer .wenzi{
+    /*min-height: 720px;*/
+    /*margin: 20px 40px;*/
+    /*margin: 2% 2% 2% 2%;*/
+    /*background-color: #009933;*/
+    padding: 4%;
+    padding-top: 20px;
+    line-height: 18px;
+    overflow: auto;
+    /*text-align: center;*/
+}
 
-/*0311修改*/
-#bbs4 .pagenation{
+/*0409*/
+#bbs4 .col-md-12 .outer .image{
+    /*min-height: 720px;*/
+    /*margin: 20px 40px;*/
+    /*margin: 2% 2% 2% 2%;*/
+    /*background-color: #009933;*/
+    padding: 4%;
+    line-height: 28px;
+    overflow: auto;
     text-align: center;
-
-}
-/*0311修改*/
-#bbs4 .pagenation a{
-    text-align: center;
-    /*color: #0f0f0f;*/
-    margin: 4px;
-    font-size: 14px;
-    border: 1px solid;
-    padding: 0 6px;
-    text-decoration: none;
-}
-
-
-/*0311修改*/
-#bbs4 .pagenation{
-    text-align: center;
-
-}
-/*0311修改*/
-#bbs4 .pagenation a{
-    text-align: center;
-    /*color: #0f0f0f;*/
-    margin: 4px;
-    font-size: 14px;
-    border: 1px solid;
-    padding: 0 6px;
-    text-decoration: none;
 }
 
 
 
-/*新闻列表*/
-.conter_con{
-    width:860px;
-    overflow:hidden;
-    /*margin:4px auto 0;*/
-}
-.list_con{
-    width:860px;
-}
-
-.list_con li{
-    background:#fff;
-    height:128px;
-    border:1px solid #ececee;
-    overflow:hidden;
-    margin-bottom:12px;
-}
-
-.list_con .news_pic{
-    width:128px;
-    height:128px;
-}
-
-.list_con .news_pic img{
-    width:128px;
-    height:148px;
-}
-
-.list_con .news_title{
-    width:700px;
-    height:18px;
-    margin:16px 0 0 16px;
-    font-size:16px;
-    line-height:18px;
-    color:#000;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-
-
-.list_con .news_title:hover{
-    color:#39f;
-}
-
-.list_con .news_detail{
-    width:700px;
-    height:60px;
-    margin:10px 0 0 16px;
-    font-size:14px;
-    line-height:23px;
-    color:#666;
-}
-
-.author_info{
-    width:600px;
-    height:20px;
-    margin-left:16px;
-}
-
-.author img{
-    float:left;
-}
-
-.author a{
-    float:left;
-    font-size:12px;
-    color:#333;
-    line-height:20px;
-    margin-left:5px;
-}
-.author a:hover{
-    color:#39f;
-}
-
-.source{
-    float:left;
-    line-height:20px;
-    font-size:12px;
-    color:#999;
-}
-
-.time{
-    float:left;
-    margin-left:15px;
-    line-height:20px;
-    font-size:12px;
-    text-indent:20px;
-    color:#999;
-    background:url(../images/clock.png) left center no-repeat;
-}
-
-/*0120完成bbs区域的点击切换*/
+/*active类控制bbs左边区域选中与不中*/
 #bbs4 .active{
     background-color: #009933;
     color: white;
 }
+
+
+/*selected类控制bbs右边区域显示与隐藏*/
 #bbs4 .bbsRight{
     display: none;
 }
 #bbs4 .selected{
     display: block;
 }
+
+
 
 
 /*HTML5 + bootstrap*/

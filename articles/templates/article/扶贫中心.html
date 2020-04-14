@@ -22,20 +22,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.html" class="navbar-brand">海吉星</a>
+            <a href="/article" class="navbar-brand">海吉星</a>
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://127.0.0.1:8000/article">首页</a></li>
-                <li><a href="http://127.0.0.1:8000/article/qiye">企业概况</a></li>
-                <li><a href="http://127.0.0.1:8000/article/list/1/1">新闻中心</a></li>
-                <li><a href="http://127.0.0.1:8000/article/bianminlist/3/1">便民信息</a></li>
-                <li><a href="http://127.0.0.1:8000/article/yuanqu">园区指南</a></li>
-                <li><a href="http://127.0.0.1:8000/article/dangqunlist/6/1">党群建设</a></li>
-                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>
-                <li><a href="http://127.0.0.1:8000/article/fupin">扶贫中心</a></li>
+{#                <li><a href="http://127.0.0.1:8000/article">首页</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/qiye">企业概况</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/list/1/1">新闻中心</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/bianminlist/3/1">便民信息</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/yuanqu">园区指南</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/dangqunlist/6/1">党群建设</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/fupin">扶贫中心</a></li>#}
+
+                <li><a href="/article">首页</a></li>
+                <li><a href="/article/qiye">企业概况</a></li>
+                <li><a href="/article/list/1/1">新闻中心</a></li>
+                <li><a href="/article/bianminlist/3/1">便民信息</a></li>
+                <li><a href="/article/yuanqu">园区指南</a></li>
+                <li><a href="/article/dangqunlist/6/1">党群建设</a></li>
+                <li><a href="/article/gonggaolist/9/1">公告栏</a></li>
+                <li><a href="/article/fupin">扶贫中心</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -186,22 +195,14 @@
 <!--footer-->
 
 
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+{#    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>#}
+    <script src="{% static 'article/js/jquery-1.12.4.js' %}"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=okhe3W5bcHOFL2yY1hArBEHzG6CwcCe2"></script>
     <script src="{% static 'article/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
     <script src="{% static 'article/js/wow.min.js' %}"></script>
 <script>
     $(function(){
-        /*导航跳转效果插件*/
-{#        $('.nav').singlePageNav({#}
-{#            offset:70#}
-{#        });#}
-{#        /*小屏幕导航点击关闭菜单*/#}
-{#        $('.navbar-collapse a').click(function(){#}
-{#            $('.navbar-collapse').collapse('hide');#}
-{#        });#}
-{#        new WOW().init();#}
 
         //点击bbs左边的li，右边进行切换
         $(".bbsli").click(function () {
@@ -214,18 +215,6 @@
             $(".bbsRight").eq(idx).addClass("selected").siblings().removeClass("selected");
         });
     });
-//    0109练习
-//    var bbsSection = document.getElementById('bbs4');
-//    var liCollection = bbsSection.getElementsByTagName('li');
-//    console.log(liCollection);
-//    var j = 0;
-//    for (var i = 0; i<liCollection.length; i++){
-//        liCollection[i].onclick = function () {
-//
-//            console.log(j);
-//            j++;
-//        }
-//    }
 </script>
 </body>
 </html>

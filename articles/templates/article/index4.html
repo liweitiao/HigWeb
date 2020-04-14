@@ -9,7 +9,7 @@
     <title>HIGREEN海吉星</title>
         <!-- Bootstrap -->
     <link href="{% static 'article/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'article/css/bootstrap-maizi4.css' %}" rel="stylesheet">
+    <link href="{% static 'article/css/bootstrap-maizi4首页.css' %}" rel="stylesheet">
     <link href="{% static 'article/css/animate.css' %}" rel="stylesheet">
 </head>
 <body>
@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.html" class="navbar-brand">海吉星</a>
+            <a href="/article" class="navbar-brand">海吉星</a>
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
@@ -36,14 +36,17 @@
 {#                <li><a href="{% url 'article:article_yuanqu' %}">园区指南</a></li>#}
 {#                <li><a href="{% url 'article:article_dangqun' %}">党群建设</a></li>#}
 {#                <li><a href="{% url 'article:article_gonggao' %}">公告栏</a></li>#}
-                <li><a href="http://127.0.0.1:8000/article">首页</a></li>
-                <li><a href="http://127.0.0.1:8000/article/qiye">企业概况</a></li>
-                <li><a href="http://127.0.0.1:8000/article/list/1/1">新闻中心</a></li>
-                <li><a href="http://127.0.0.1:8000/article/bianminlist/3/1">便民信息</a></li>
-                <li><a href="http://127.0.0.1:8000/article/yuanqu">园区指南</a></li>
-                <li><a href="http://127.0.0.1:8000/article/dangqunlist/6/1">党群建设</a></li>
-                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>
-                <li><a href="http://127.0.0.1:8000/article/fupin">扶贫中心</a></li>
+
+
+
+                <li><a href="/article">首页</a></li>
+                <li><a href="/article/qiye">企业概况</a></li>
+                <li><a href="/article/list/1/1">新闻中心</a></li>
+                <li><a href="/article/bianminlist/3/1">便民信息</a></li>
+                <li><a href="/article/yuanqu">园区指南</a></li>
+                <li><a href="/article/dangqunlist/6/1">党群建设</a></li>
+                <li><a href="/article/gonggaolist/9/1">公告栏</a></li>
+                <li><a href="/article/fupin">扶贫中心</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -310,8 +313,6 @@
 <!--bbs3-->
 
 
-
-
 <!--footer-->
 <footer>
     <div class="container">
@@ -449,28 +450,6 @@ $(function () {
     $('.tbl-body tbody').empty();
     $('.tbl-header tbody').empty();
     var str = '';
-{#    var Items = [{"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米玉米玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"}#}
-{#    ];#}
 
     $.each(Items, function (i, item) {
         console.log(item);
@@ -513,77 +492,6 @@ $(function () {
         })
     }
     {#    价格行情#}
-
-
-    {#    价格行情2#}
-{#    var MyMarhq = '';#}
-{#    clearInterval(MyMarhq);#}
-{#    $('.tbl-body tbody').empty();#}
-{#    $('.tbl-header tbody').empty();#}
-{#    var str = '';#}
-{#    var Items = [{"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米玉米玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"}#}
-{#    ];#}
-{##}
-{#    $.each(Items, function (i, item) {#}
-{#        str = '<tr>' +#}
-{##}
-{#            '<td>' + item.City + '</td>' +#}
-{#            '<td>' + item.SaleIncome + '</td>' +#}
-{#            '<td>' + item.SalePlan + '</td>' +#}
-{#            '<td>' + item.PlanFinish + '</td>' +#}
-{#            '</tr>'#}
-{##}
-{#        $('.tbl-body tbody').append(str);#}
-{#        $('.tbl-header tbody').append(str);#}
-{#    });#}
-{##}
-{#    if (Items.length > 10) {#}
-{#        $('.tbl-body tbody').html($('.tbl-body tbody').html() + $('.tbl-body tbody').html());#}
-{#        $('.tbl-body').css('top', '0');#}
-{#        var tblTop = 0;#}
-{#        var speedhq = 50; // 数值越大越慢#}
-{#        var outerHeight = $('.tbl-body tbody').find("tr").outerHeight();#}
-{##}
-{#        function Marqueehq() {#}
-{#            if (tblTop <= -outerHeight * Items.length) {#}
-{#                tblTop = 0;#}
-{#            } else {#}
-{#                tblTop -= 1;#}
-{#            }#}
-{#            $('.tbl-body').css('top', tblTop + 'px');#}
-{#        }#}
-{##}
-{#        MyMarhq = setInterval(Marqueehq, speedhq);#}
-{##}
-{#        // 鼠标移上去取消事件#}
-{#        $(".tbl-header tbody").hover(function () {#}
-{#            clearInterval(MyMarhq);#}
-{#        }, function () {#}
-{#            clearInterval(MyMarhq);#}
-{#            MyMarhq = setInterval(Marqueehq, speedhq);#}
-{#        })#}
-{#    }#}
-    {#    价格行情2#}
 
 })
 

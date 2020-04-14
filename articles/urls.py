@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views
 from articles.views import ListView, BianminListView, DangqunListView, GonggaoListView
 
@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^dangqun$', views.dangqun, name='article_dangqun'),
     url(r'^gonggao$', views.gonggao, name='article_gonggao'),
     url(r'^fupin$', views.fupin, name='article_fupin'),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # url(r'^category/(?P<category_id>[0-9]+)/$', views.category, name='article_category'),
 
 ]

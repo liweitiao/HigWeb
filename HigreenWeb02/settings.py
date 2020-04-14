@@ -141,7 +141,7 @@ MEDIA_URL = '/media/'
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',  # 工具条功能
-        'height': 300,  # 编辑器高度
+        'height': 600,  # 编辑器高度
     }
 }
 CKEDITOR_UPLOAD_PATH = "article_images"  # 上传图片保存路径

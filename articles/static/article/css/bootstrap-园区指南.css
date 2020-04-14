@@ -3,7 +3,7 @@ body{
 }
 
 .mai-icon{
-    background: rgb(64, 210, 177);
+    background: #009933;
     color: #fff;
     border-radius: 50%;
     width: 40px;
@@ -35,7 +35,13 @@ body{
     height: 70px;
     line-height: 35px;
 }
-
+.navbar-default .navbar-nav>li>a:hover {
+    font-size: 16px;
+    font-weight: bold;
+    color: #009933;
+    height: 70px;
+    line-height: 35px;
+}
 .navbar-toggle{
     margin-top: 17px;
 }

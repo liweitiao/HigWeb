@@ -27,20 +27,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.html" class="navbar-brand">海吉星</a>
+            <a href="/article" class="navbar-brand">海吉星</a>
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://127.0.0.1:8000/article">首页</a></li>
-                <li><a href="http://127.0.0.1:8000/article/qiye">企业概况</a></li>
-                <li><a href="http://127.0.0.1:8000/article/list/1/1">新闻中心</a></li>
-                <li><a href="http://127.0.0.1:8000/article/bianminlist/3/1">便民信息</a></li>
-                <li><a href="http://127.0.0.1:8000/article/yuanqu">园区指南</a></li>
-                <li><a href="http://127.0.0.1:8000/article/dangqunlist/6/1">党群建设</a></li>
-                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>
-                <li><a href="http://127.0.0.1:8000/article/fupin">扶贫中心</a></li>
+{#                <li><a href="http://127.0.0.1:8000/article">首页</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/qiye">企业概况</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/list/1/1">新闻中心</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/bianminlist/3/1">便民信息</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/yuanqu">园区指南</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/dangqunlist/6/1">党群建设</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>#}
+{#                <li><a href="http://127.0.0.1:8000/article/fupin">扶贫中心</a></li>#}
+
+                <li><a href="/article">首页</a></li>
+                <li><a href="/article/qiye">企业概况</a></li>
+                <li><a href="/article/list/1/1">新闻中心</a></li>
+                <li><a href="/article/bianminlist/3/1">便民信息</a></li>
+                <li><a href="/article/yuanqu">园区指南</a></li>
+                <li><a href="/article/dangqunlist/6/1">党群建设</a></li>
+                <li><a href="/article/gonggaolist/9/1">公告栏</a></li>
+                <li><a href="/article/fupin">扶贫中心</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -48,10 +57,6 @@
     </div>
 </nav>
 <!--导航-->
-
-
-
-
 
 <!--home-->
 <section id="home">
@@ -71,20 +76,8 @@
                         <span class="left">便民信息</span>
                     </div>
 
-                    <!--<div class="list-group">-->
-                        <!--<li class="active"><a href="#">企业简介</a></li>-->
-                        <!--<li><a href="#">发展历程</a></li>-->
-                        <!--<li><a href="#">服务理念</a></li>-->
-                        <!--<li><a href="#">组织架构</a></li>-->
-                        <!--<li><a href="#">园区3D图</a></li>-->
-
                     <!--</div>-->
                     <div class="list-group list2">
-{#                        <li class="bbsli active">政策法规</li>#}
-{#                        <li class="bbsli">食安舆情</li>#}
-{#                        <li class="bbsli">食品知识</li>#}
-{#                        <li class="bbsli">蔬菜价格</li>#}
-{#                        <li class="bbsli">水果价格</li>#}
                         <a href="{% url 'article:bianminlist' 3 1 %}" {% if sort == 'default' %}class="active"{% endif %}>政策法规<br></a>
 				        <a href="{% url 'article:bianminlist' 4 1 %}?sort=shian" {% if sort == 'shian' %}class="active"{% endif %}>食安與情<br></a>
                         <a href="{% url 'article:bianminlist' 5 1 %}?sort=shipin" {% if sort == 'shipin' %}class="active"{% endif %}>食品知识<br></a>
@@ -322,7 +315,8 @@
 <!--footer-->
 
 
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+{#<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>#}
+<script src="{% static 'article/js/jquery-1.12.4.js' %}"></script>
 <script src="{% static 'article/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
 <script src="{% static 'article/js/wow.min.js' %}"></script>

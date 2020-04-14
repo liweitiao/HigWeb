@@ -1,0 +1,127 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>HIGREEN海吉星</title>
+    <link href="{% static 'article/css/reset.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'article/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'article/css/bootstrap-maizi4信息详情.css' %}" rel="stylesheet">
+    <link href="{% static 'article/css/animate.css' %}" rel="stylesheet">
+    <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+</head>
+<body>
+<!--导航-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!--小屏幕导航按钮和logo-->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/article" class="navbar-brand">海吉星</a>
+        </div>
+        <!--小屏幕导航按钮和logo-->
+        <!--导航-->
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/article">首页</a></li>
+                <li><a href="/article/qiye">企业概况</a></li>
+                <li><a href="/article/list/1/1">新闻中心</a></li>
+                <li><a href="/article/bianminlist/3/1">便民信息</a></li>
+                <li><a href="/article/yuanqu">园区指南</a></li>
+                <li><a href="/article/dangqunlist/6/1">党群建设</a></li>
+                <li><a href="/article/gonggaolist/9/1">公告栏</a></li>
+                <li><a href="/article/fupin">扶贫中心</a></li>
+            </ul>
+        </div>
+        <!--导航-->
+
+    </div>
+</nav>
+<!--导航-->
+
+
+
+
+
+<!--home-->
+<section id="home">
+    <img src="{% static 'article/images/aboutus.jpg' %}" class="img-responsive" alt="企业概况图片"/>
+</section>
+<!--home-->
+
+
+<!--bbs4-->
+<section id="bbs4">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-duration="0.5s">
+
+            <!--企业简介-->
+            <div class="col-md-12 col-xs-12  bbsRight selected">
+                <div class="outer">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="inner">
+                            <span class="right">{{ article.title }}</span>
+                            <br>
+                            <span class="right02">发布时间：{{ article.created_time }}&nbsp;&nbsp;&nbsp;&nbsp;阅读量:{{ article.visiting }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+
+
+
+                    <!--<div class="col-md-2"></div>-->
+                    <div class="col-md-10 abstract">{{ article.abstract }}</div>
+                    <!--<div class="col-md-1"></div>-->
+
+
+
+                    <div class="col-md-12 wenzi">{{ article.body | safe }}</div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--bbs4-->
+
+
+<!--footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <p>
+                    客服中心：4008000061转8    公司传真：0755-89695958
+                </p>
+                <p>
+                    地址：深圳市龙岗区平湖白坭坑社区丹农路1号
+                </p>
+                <br>
+                <p>
+                    © 深圳海吉星, 2016. All rights reserved    粤ICP备14057873号-4    粤公网安备 44030702000610号
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer-->
+
+
+<script src="{% static 'article/js/jquery-1.12.4.js' %}"></script>
+<script src="{% static 'article/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
+<script src="{% static 'article/js/wow.min.js' %}"></script>
+<script>
+
+</script>
+</body>
+</html>

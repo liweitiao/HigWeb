@@ -2,7 +2,7 @@ body{
     font-family: 'Microsoft YaHei', sans-serif;
 }
 .mai-icon{
-    background: rgb(64, 210, 177);
+    background: #009933;
     color: #fff;
     border-radius: 50%;
     width: 40px;
@@ -20,7 +20,7 @@ body{
 .navbar-default .navbar-brand {
     font-size: 30px;
     font-weight: bold;
-    color: #40D2B1;
+    color: #009933;
     height: 70px;
     line-height: 35px;
 }
@@ -28,6 +28,13 @@ body{
     font-size: 16px;
     font-weight: bold;
     color: #666;
+    height: 70px;
+    line-height: 35px;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    font-size: 16px;
+    font-weight: bold;
+    color: #009933;
     height: 70px;
     line-height: 35px;
 }
@@ -135,7 +142,7 @@ body{
     /*height: 500px;*/
 }
 #bbs4 .col-md-10 .outer{
-    min-height: 800px;
+    min-height: 600px;
     background-color: #efefef;
     overflow: auto;
 }

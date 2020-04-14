@@ -28,7 +28,12 @@ def price(request):
 
 
 def detail(request, article_id):
-    return render(request, 'article/detail.html', locals())
+    article = models.Entry.objects.get(id=article_id)
+    category = models.Category.objects.filter(id=article.id)
+    print(article.category)
+    print(category)
+    print(article.id)
+    return render(request, 'article/信息详情.html', locals())
 
 
 def qiye(request):
