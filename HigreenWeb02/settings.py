@@ -25,7 +25,7 @@ SECRET_KEY = 'y%al_0zn9wy7we@vkvj!fl4ud8#ari!t5*tj3e0+w^eu#+&pgn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,13 +40,15 @@ INSTALLED_APPS = [
     'articles.apps.ArticlesConfig',
     'ckeditor',
     'ckeditor_uploader',
+    'price.apps.PriceConfig',
+    'DjangoUeditor'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -84,10 +86,27 @@ DATABASES = {
         'HOST':'localhost',
         'PORT':'3306',
         'USER':'root',
-        'PASSWORD':'123456',
+        'PASSWORD':'root',
         'NAME':'HigreenWeb02',
+    },
+    'oracle01': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': '10.1.32.7:1521/HGBS',
+        'USER': 'dbc',
+        'PASSWORD': 'dbc',
     }
 }
+DATABASE_ROUTERS = ['HigreenWeb02.database_router.DatabaseAppsRouter']
+DATABASE_APPS_MAPPING = {
+    # example:
+    # 'app_name':'database_name',
+    'price': 'oracle01',
+    'admin': 'default',
+    'articles':  'default',
+}
+
+
+
 
 
 # Password validation
@@ -131,6 +150,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'all_static_files')
+
+from django.views.static import serve
 
 # MEDIA_ROOT = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace("\\", "/")

@@ -27,7 +27,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/article" class="navbar-brand">海吉星</a>
+            <a href="/article" class="navbar-brand"><img src="{% static 'article/images/LOGO3.PNG' %}" class="img-responsive" alt="logo"/></a>
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
@@ -42,14 +42,14 @@
 {#                <li><a href="http://127.0.0.1:8000/article/gonggaolist/9/1">公告栏</a></li>#}
 {#                <li><a href="http://127.0.0.1:8000/article/fupin">扶贫中心</a></li>#}
 
-                <li><a href="/article">首页</a></li>
-                <li><a href="/article/qiye">企业概况</a></li>
-                <li><a href="/article/list/1/1">新闻中心</a></li>
-                <li><a href="/article/bianminlist/3/1">便民信息</a></li>
-                <li><a href="/article/yuanqu">园区指南</a></li>
-                <li><a href="/article/dangqunlist/6/1">党群建设</a></li>
-                <li><a href="/article/gonggaolist/9/1">公告栏</a></li>
-                <li><a href="/article/fupin">扶贫中心</a></li>
+                <li {% if request.path == '/'%}class="navactive" {% endif %} ><a href="/">首页</a></li>
+                <li {% if request.path == '/qiye'%}class="navactive" {% endif %} ><a href="/qiye">企业概况</a></li>
+                <li {% if request.path|slice:':5' == '/list'%}class="navactive" {% endif %}><a href="/list/1/1">新闻中心</a></li>
+                <li {% if request.path|slice:':12' == '/bianminlist'%}class="navactive" {% endif %}><a href="/bianminlist/3/1">便民信息</a></li>
+                <li {% if request.path|slice:':7' == '/yuanqu'%}class="navactive" {% endif %}><a href="/yuanqu">园区指南</a></li>
+                <li {% if request.path|slice:':12' == '/dangqunlist'%}class="navactive" {% endif %}><a href="/dangqunlist/6/1">党群建设</a></li>
+                <li {% if request.path|slice:':12' == '/gonggaolist'%}class="navactive" {% endif %}><a href="/gonggaolist/9/1">公告栏</a></li>
+                <li {% if request.path|slice:':6' == '/fupin'%}class="navactive" {% endif %}><a href="/fupin">扶贫中心</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -61,7 +61,7 @@
 <!--home-->
 <section id="home">
 {#    <img src="images/aboutus.jpg" class="img-responsive" alt="企业概况图片"/>#}
-    <img src="{% static 'article/images/aboutus.jpg' %}" class="img-responsive" alt="企业概况图片"/>
+    <img src="{% static 'article/images/便民信息11.jpg' %}" class="img-responsive" alt="企业概况图片"/>
 </section>
 <!--home-->
 
@@ -91,7 +91,7 @@
             <div class="col-md-10 col-xs-10 bbsRight selected">
                 <div class="outer">
                     <div class="col-md-1"></div>
-                    <div class="col-md-10">
+                    <div class="col-md-11">
                         <div class="inner">
                             {% if sort == 'default' %}
                                 <span class="right">政策法规</span>
@@ -110,12 +110,18 @@
                                 {#修改成动态分页#}
                                         {% for entry in entry_list_page %}
                                             <li>
-                                                <a href="#" class="news_pic fl"><img src="{{ entry.img.url }}"></a>
+                                                <a href="#" class="news_pic fl">
+                                                    {% if entry.img %}
+                                                    <img src="{{ entry.img.url }}">
+                                                    {% else %}
+                                                    <img src="{% static 'article/images/wlyght.jpg' %}">
+                                                    {% endif %}
+                                                </a>
                                                 <a href="{{ entry.get_absolute_url }}" class="news_title fl">{{ entry.title }}</a>
                                                 <a href="#" class="news_detail fl">{{ entry.abstract|truncatechars:108 }}</a>
                                                 <div class="author_info fl">
                                                     <div class="source fl">
-                                                        <span>作者：{{ entry.author }}</span>
+                                                        <span>阅读量：{{ entry.visiting }}</span>
                                                     </div>
                                                     <div class="time fl">{{ entry.created_time }}</div>
                                                 </div>

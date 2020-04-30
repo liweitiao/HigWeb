@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 # users/admin.py:
-from articles.models import Category, Entry, Price
+from articles.models import Category, Entry, Price, Media
 
 
 admin.site.site_title = 'higreen'
@@ -13,6 +13,21 @@ admin.site.index_title = '海吉星官网后台管理系统'
 class EntryAdmin(admin.ModelAdmin):
     # 指定要显示的属性
     list_display = ["id", "title",  "created_time"]
+
+    # 搜索文章名称
+    search_fields = ['title']
+
+    # 显示过滤栏: 按category过滤
+    list_filter = ['category']
+
+
+class MediaAdmin(admin.ModelAdmin):
+    # 指定要显示的属性
+    list_display = ["id", "title",  "created_time"]
+
+    # 搜索文章名称
+    search_fields = ['title']
+
 
 
 class CategoryStackedInline(admin.StackedInline):
@@ -48,4 +63,5 @@ class PriceAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Entry, EntryAdmin)
 admin.site.register(Price, PriceAdmin)
+admin.site.register(Media, MediaAdmin)
 

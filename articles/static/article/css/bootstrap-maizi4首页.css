@@ -16,14 +16,30 @@ body{
     background-color: #fff;
     border: none;
     box-shadow: 0px 2px 8px 0px rgba(50,50,50,0.25);
+    /*position: relative;*/
 }
 .navbar-default .navbar-brand {
-    font-size: 30px;
-    font-weight: bold;
-    color: #009933;
-    height: 70px;
-    line-height: 35px;
+    /*font-size: 30px;*/
+    /*font-weight: bold;*/
+    /*color: #009933;*/
+    /*height: 70px;*/
+    /*line-height: 35px;*/
+    /*background-image: url('../images/LOGO.jpg')*/
+    /*width: 280px;*/
 }
+
+/*0421修改*/
+/*.navbar-default .navimg{*/
+    /*display: inline-block;*/
+    /*!*height: 100px;*!*/
+/*}*/
+.navbar-default .navbar-right{
+    margin-top: 10px;
+}
+
+
+
+
 .navbar-default .navbar-nav>li>a {
     font-size: 16px;
     font-weight: bold;
@@ -31,6 +47,16 @@ body{
     height: 70px;
     line-height: 35px;
 }
+
+.navbar-default .navbar-nav .navactive{
+    border-bottom: solid 2px #009933;
+}
+
+.navbar-default .navbar-nav .navactive a{
+    color: #009933;
+}
+
+
 .navbar-default .navbar-nav>li>a:hover {
     font-size: 16px;
     font-weight: bold;
@@ -121,12 +147,15 @@ body{
 /*0103修改*/
 #bbs2 .outer{
     height: 207px;
-    background-color: #efefef;
+    /*background-color: #efefef;*/
+    background-color: #FAFAFA;
+
 }
 #bbs2 .inner{
     height: 30px;
     padding-top: 5px;
     background-color: #009933;
+    /*background-color: rgba(0,153,51,0.2);*/
 }
 #bbs2 .inner .left{
     color: white;
@@ -149,7 +178,7 @@ body{
     margin-left: 10px;
 }
 #bbs2 .inner2 li{
-    font-size: 12px;
+    font-size: 13px;
     margin: 8px 10px;
 }
 
@@ -179,11 +208,12 @@ body{
 /*0103修改*/
 #bbs3 .outer{
     height: 207px;
-    background-color: #efefef;
+    background-color: #FAFAFA;
 }
 #bbs3 .inner{
     height: 30px;
     padding-top: 5px;
+    /*background-color: #009933;*/
     background-color: #009933;
 }
 #bbs3 .inner .left{
@@ -207,7 +237,7 @@ body{
     margin-left: 10px;
 }
 #bbs3 .inner2 li{
-    font-size: 12px;
+    font-size: 13px;
     margin: 8px 10px;
 }
 
@@ -231,7 +261,8 @@ body{
 /*0107修改*/
 #bbs4 .outer{
     height: 280px;
-    background-color: #efefef;
+    background-color: #FAFAFA;
+    /*background-color: #1b6d85;*/
     overflow: auto;
 }
 #bbs4 .inner{
@@ -253,13 +284,19 @@ body{
     color: white;
     float: right;
     margin-right: 15px;
+    text-decoration: none;
+}
+
+#bbs4 .col-md-7 .inner2 .col-md-6{
+    padding: 0px 6px;
 }
 
 #bbs4 .col-md-5 .inner2{
-    margin-left: 10px
+    margin-left: 10px;
 }
+
 #bbs4 .inner2 li{
-    font-size: 12px;
+    font-size: 13px;
     margin: 8px 10px;
 }
 
@@ -282,7 +319,7 @@ body{
 
 /*0103  0107 0311修改*/
 #bbs4 .col-md-7 .inner2 .col-md-6 img{
-    margin: 10px 0;
+    margin: 6px 0;
     /*height: 230px;*/
     /*width: 320px;*/
     /*vertical-align: middle;*/
@@ -298,11 +335,12 @@ body{
 /*0311修改*/
 #bbs4 .inner2 p{
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 22px;
     max-height: 220px;
     display: block;
     overflow: auto;
+    padding: 0px 10px;
 }
 
 
@@ -310,7 +348,8 @@ body{
 /*0107 0311修改*/
 #bbs6 .outer{
     height: 280px;
-    background-color: #efefef;
+    background-color: #FAFAFA;
+    /*background-color: #1b6d85;*/
     overflow: auto;
 }
 #bbs6 .inner{
@@ -339,7 +378,7 @@ body{
     margin-left: 10px
 }
 #bbs6 .inner2 li{
-    font-size: 12px;
+    font-size: 13px;
     margin: 8px 10px;
 }
 
@@ -361,9 +400,14 @@ body{
     color: #212121;
     text-decoration: none;
 }
+
+#bbs6 .col-md-7 .inner2 .col-md-6{
+    padding: 0px 6px;
+}
+
 /*0103修改 0311*/
 #bbs6 .col-md-7 .inner2 .col-md-6 img{
-    margin: 10px 0;
+    margin: 6px 0;
     /*height: 230px;*/
     /*width: 320px;*/
     max-height:180%;
@@ -376,7 +420,7 @@ body{
 }
 #bbs6 .inner2 p{
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 22px;
 }
 /*0311修改*/
@@ -417,7 +461,7 @@ body{
 
 .tablebox table th,
 .tablebox table td {
-    font-size: 12px;
+    font-size: 13px;
     /*color: #7ca6f4;*/
     line-height: 30px;
     text-align: center;
@@ -440,7 +484,7 @@ body{
 
 .tablebox table tr td span,
 .tablebox table tr td span {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 
@@ -460,7 +504,7 @@ body{
 /*0103修改*/
 #bbs5 .outer{
     height: 280px;
-    background-color: #efefef;
+    background-color: #FAFAFA;
 }
 #bbs5 .inner{
     height: 30px;
@@ -492,7 +536,7 @@ body{
     margin-left: 10px
 }
 #bbs5 .inner2 li{
-    font-size: 12px;
+    font-size: 13px;
     margin: 8px 10px;
 }
 
@@ -515,7 +559,7 @@ body{
 }
 
 #bbs5 .col-md-7 .inner3 li{
-    font-size: 12px;
+    font-size: 13px;
     line-height: 28px;
 }
 #bbs5 .col-md-7 .inner3 li span{
@@ -541,7 +585,7 @@ body{
 }
 #bbs5 .inner2 p{
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 16px;
 }
 

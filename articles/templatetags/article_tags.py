@@ -1,5 +1,5 @@
 from django import template
-from ..models import Entry,Category
+from ..models import Entry,Category,Media
 
 register = template.Library()
 
@@ -21,6 +21,13 @@ def get_recent_entries_01(num=6):
 def get_recent_entries_02(num=6):
     c02 = Category.objects.get(id=2)
     return Entry.objects.filter(category=c02).order_by('-created_time')[:num]
+
+
+# 媒体播报最新６条文章
+@register.simple_tag
+def get_recent_entries_12(num=6):
+    # c02 = Category.objects.get(id=2)
+    return Media.objects.order_by('-created_time')[:num]
 
 
 # 政策法规最新６条文章

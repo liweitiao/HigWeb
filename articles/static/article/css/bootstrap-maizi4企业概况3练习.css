@@ -18,12 +18,17 @@ body{
     box-shadow: 0px 2px 8px 0px rgba(50,50,50,0.25);
 }
 .navbar-default .navbar-brand {
-    font-size: 30px;
-    font-weight: bold;
-    color: #009933;
-    height: 70px;
-    line-height: 35px;
+    /*font-size: 30px;*/
+    /*font-weight: bold;*/
+    /*color: #009933;*/
+    /*height: 70px;*/
+    /*line-height: 35px;*/
 }
+
+.navbar-default .navbar-right{
+    margin-top: 10px;
+}
+
 .navbar-default .navbar-nav>li>a {
     font-size: 16px;
     font-weight: bold;
@@ -31,6 +36,15 @@ body{
     height: 70px;
     line-height: 35px;
 }
+
+.navbar-default .navbar-nav .navactive{
+    border-bottom: solid 2px #009933;
+}
+
+.navbar-default .navbar-nav .navactive a{
+    color: #009933;
+}
+
 .navbar-default .navbar-nav>li>a:hover {
     font-size: 16px;
     font-weight: bold;
@@ -79,6 +93,7 @@ body{
     height: 40px;
     padding-top: 5px;
     border-bottom: 1px solid #009933;
+    overflow: auto;
 }
 #bbs4 .col-md-2 .inner .left{
     font-size: 18px;
@@ -97,13 +112,14 @@ body{
     margin-top: 20px;
 }
 #bbs4 .col-md-2 .outer .list-group li{
+    height: 40px;
     list-style: none;
     width: 100%;
-    height: 40px;
+    /*height: 40px;*/
     display: inline-block;
     text-align: center;
     overflow: hidden;
-    padding: 6px;
+    padding: 10px;
 }
 #bbs4 .col-md-2 .outer .list-group li a{
     font-size: 14px;
@@ -123,7 +139,7 @@ body{
     color: white;
 }
 #bbs4 .col-md-2 .outer .list2{
-    background-color: #efefef;
+    background-color: #FAFAFA;
 }
 
 #bbs4 .col-md-10 .inner{
@@ -142,18 +158,31 @@ body{
     /*height: 500px;*/
 }
 #bbs4 .col-md-10 .outer{
-    height: 800px;
-    background-color: #efefef;
+    min-height: 800px;
+    background-color: #FAFAFA;
+    overflow: auto;
 }
-#bbs4 .col-md-10 .outer .col-md-12{
-    height: 720px;
+#bbs4 .col-md-10 .outer .col-md-11{
+    /*height: 1120px;*/
+    margin: 4px 40px 16px 40px;
     /*margin: 20px 40px;*/
     /*margin: 2% 2% 2% 2%;*/
     /*background-color: #009933;*/
-    padding: 2%;
-    line-height: 28px;
-    overflow: auto;
+    /*padding: 2%;*/
+    /*padding: 0px;*/
+    /*line-height: 28px;*/
+    /*overflow: auto;*/
 }
+#bbs4 .col-md-10 .outer .col-md-12 h4{
+    text-align: center;
+}
+
+#bbs4 .col-md-10 .outer .col-md-12{
+    padding: 0 4%;
+    line-height: 28px;
+}
+
+
 /*active类控制bbs左边区域选中与不中*/
 #bbs4 .active{
     background-color: #009933;

@@ -32,7 +32,6 @@ body{
 .navbar-default .navbar-right{
     margin-top: 10px;
 }
-
 .navbar-default .navbar-nav>li>a {
     font-size: 16px;
     font-weight: bold;
@@ -106,21 +105,6 @@ body{
     overflow: auto;
 }
 
-#bbs4 .col-md-2 .inner .left{
-    font-size: 18px;
-    font-weight: bold;
-    color: #009933;
-    /*margin-left: 15px;*/
-}
-
-/*#bbs4 .col-md-2{*/
-/*padding: 5px;*/
-/*}*/
-#bbs4 .col-md-2 .outer .list-group{
-    margin-top: 20px;
-    background-color: #efefef;
-}
-
 
 <!--bbs导航区域houlaide-->
 * {
@@ -137,14 +121,6 @@ li {
     text-align: center;
 }
 
-#bbs4 .container .col-md-2 {
-    padding-right: 0;
-    padding-left: 2px;
-}
-
-#bbs4 .container .col-md-2 .outer{
-    margin-top: 16px;
-}
 
 .bbs4{
     background-color: #efefef;
@@ -157,108 +133,52 @@ li {
     text-align: center;
 }
 
-.bbsli {
-    /*border: 1px solid #999;*/
-    /*background-color: #e0ecff;*/
-    /*height: 40px;*/
-    font-size: 14px;
-}
-
-.bbsli span{
-    /*height: 40px;*/
-    /*text-align: center;*/
-    padding-top: 10px;
-    height: 40px;
-    /*padding-left: 10px;*/
-}
-
-.groupTitle {
-    display: block;
-    /*height: 40px;*/
-    /*line-height: 20px;*/
-    /*font-size: 14px;*/
-    /*border-bottom: 1px solid #ccc;*/
-    cursor: pointer;
-}
-
-.bbsli .groupul {
-    /*height: 200px;*/
-    /*background-color: #fff;*/
-    display: none;
-    /*height: 40px;*/
-    line-height: 40px;
-    /*overflow: scroll;*/
-}
-
-.bbsli .groupul:hover{
-    background-color: #009933;
-    color: white;
-}
-
-.active{
-    background-color: #009933;
-    color: white;
-}
-
-.active2{
-    /*background-color: #009933;*/
-    color: #009933;
-}
-
-.num{
-    display: none;
-}
-
-.selected{
-    display: block;
-}
-
-
 
 /*bbs右边区域*/
 #bbs4 .outer{
     margin-top: 10px;
 }
 
-#bbs4 .col-md-10 .outer{
+#bbs4 .col-md-12 .outer{
 /*height: 820px;*/
-    background-color: #efefef;
+    /*background-color: #efefef;*/
+    /*background-color: #3c763d;*/
     overflow: auto;
 }
 
-#bbs4 .col-md-10 .inner{
+#bbs4 .col-md-12 .inner{
     text-align: center;
 }
 
-#bbs4 .col-md-10 .inner .right{
+#bbs4 .col-md-12 .inner .right{
     font-size: 18px;
     font-weight: bold;
     text-align: center;
 }
 
-#bbs4 .col-md-10 .col-md-10{
+#bbs4 .col-md-12 .col-md-10{
     padding: 5px;
     /*height: 500px;*/
 }
 
-#bbs4 .container .col-md-10 .outer .col-md-12 .conter_con{
+#bbs4 .container .col-md-12 .outer .col-md-12 .conter_con{
     text-align: center;
     margin: 10px auto;
     /*padding-left: 65px;*/
 }
 
-#bbs4 .container .col-md-10 .outer .col-md-12 .contact_conter_con .contact-info{
+#bbs4 .container .col-md-12 .outer .col-md-12 .contact_conter_con .contact-info{
     /*text-align: center;*/
     margin: 10px auto;
     padding-left: 65px;
 }
 
-#bbs4 .container .col-md-10 .outer .col-md-12 .contact_conter_con h4{
+#bbs4 .container .col-md-12 .outer .col-md-12 .contact_conter_con h4{
     font-weight: bold;
     font-size: 16px;
 }
 
-#bbs4 .container .col-md-10 .outer .col-md-12 .contact_conter_con #map{
+#bbs4 .container .col-md-12 .outer .col-md-12 .contact_conter_con #map{
     /*text-align: center;*/
     margin: 10px 65px;
     height: 800px;

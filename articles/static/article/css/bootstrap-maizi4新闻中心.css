@@ -18,12 +18,17 @@ body{
     box-shadow: 0px 2px 8px 0px rgba(50,50,50,0.25);
 }
 .navbar-default .navbar-brand {
-    font-size: 30px;
-    font-weight: bold;
-    color: #009933;
-    height: 70px;
-    line-height: 35px;
+    /*font-size: 30px;*/
+    /*font-weight: bold;*/
+    /*color: #009933;*/
+    /*height: 70px;*/
+    /*line-height: 35px;*/
 }
+.navbar-default .navbar-right{
+    margin-top: 10px;
+}
+
+
 .navbar-default .navbar-nav>li>a {
     font-size: 16px;
     font-weight: bold;
@@ -31,6 +36,15 @@ body{
     height: 70px;
     line-height: 35px;
 }
+
+.navbar-default .navbar-nav .navactive{
+    border-bottom: solid 2px #009933;
+}
+
+.navbar-default .navbar-nav .navactive a{
+    color: #009933;
+}
+
 .navbar-default .navbar-nav>li>a:hover {
     font-size: 16px;
     font-weight: bold;
@@ -79,6 +93,7 @@ body{
     height: 40px;
     padding-top: 5px;
     border-bottom: 1px solid #009933;
+    overflow: auto;
 }
 #bbs4 .col-md-2 .inner .left{
     font-size: 18px;
@@ -107,7 +122,7 @@ body{
     color: #0f0f0f;
     text-decoration: none;
 }
-/*0311修改*/
+/*0311修改  0421*/
 #bbs4 .col-md-2 .outer .list-group a{
     font-size: 16px;
     color: #0f0f0f;
@@ -115,7 +130,7 @@ body{
     display: block;
     width: 100%;
     text-align: center;
-    height: 40px;
+    /*height: 40px;*/
     padding: 9px;
 }
 
@@ -128,7 +143,7 @@ body{
     color: white;
 }
 #bbs4 .col-md-2 .outer .list2{
-    background-color: #efefef;
+    background-color: #FAFAFA;
 }
 
 #bbs4 .col-md-10 .inner{
@@ -148,11 +163,11 @@ body{
 }
 #bbs4 .col-md-10 .outer{
     height: 820px;
-    background-color: #efefef;
+    background-color: #FAFAFA;
 }
 #bbs4 .col-md-10 .outer .col-md-11{
     /*height: 820px;*/
-    margin: 20px 40px;
+    margin: 4px 40px 16px 40px;
     /*background-color: #009933;*/
     padding: 0px;
     line-height: 28px;
@@ -178,36 +193,36 @@ body{
 
 /*新闻列表*/
 .conter_con{
-    width:860px;
+    width:866px;
     overflow:hidden;
     /*margin:4px auto 0;*/
 }
 .list_con{
-    width:860px;
+    width:866px;
 }
 
 .list_con li{
     background:#fff;
-    height:128px;
+    height:108px;
     border:1px solid #ececee;
     overflow:hidden;
     margin-bottom:12px;
 }
 
 .list_con .news_pic{
-    width:128px;
-    height:128px;
+    width:108px;
+    height:108px;
 }
 
 .list_con .news_pic img{
-    width:128px;
-    height:148px;
+    width:108px;
+    height:108px;
 }
 
 .list_con .news_title{
     width:700px;
-    height:18px;
-    margin:16px 0 0 16px;
+    height:16px;
+    margin:10px 0 0 10px;
     font-size:16px;
     line-height:18px;
     color:#000;
@@ -224,8 +239,8 @@ body{
 
 .list_con .news_detail{
     width:700px;
-    height:60px;
-    margin:10px 0 0 16px;
+    height:50px;
+    margin:10px 0 0 10px;
     font-size:14px;
     line-height:23px;
     color:#666;
@@ -268,6 +283,29 @@ body{
     color:#999;
     background:url(../images/clock.png) left center no-repeat;
 }
+
+
+/*0427修改  增加默认时间样式*/
+.list_con .news_pic .date-block {
+    /*float: left;*/
+    padding: 0 10px;
+    width: 108px;
+    height: 108px;
+    /*font: 14px/15px "Segoe UI","wf_segoe-ui_normal","Arial",sans-serif;*/
+    color: #444;
+    background-color: #e1e1e1;
+}
+.list_con .news_pic .date-block .day {
+    display: block;
+    margin: 0px 0 3px 0;
+    font: bold 36px/36px "Segoe UI","wf_segoe-ui_normal","Arial",sans-serif;
+    /*color: #e62b1e;*/
+    color: #009933;
+}
+
+
+
+
 /*0120完成bbs区域的点击切换*/
 #bbs4 .active{
     background-color: #009933;

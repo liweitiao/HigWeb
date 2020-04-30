@@ -18,12 +18,40 @@ body{
     box-shadow: 0px 2px 8px 0px rgba(50,50,50,0.25);
 }
 .navbar-default .navbar-brand {
-    font-size: 30px;
-    font-weight: bold;
-    color: #009933;
-    height: 70px;
-    line-height: 35px;
+    /*font-size: 30px;*/
+    /*font-weight: bold;*/
+    /*color: #009933;*/
+    /*height: 70px;*/
+    /*line-height: 35px;*/
 }
+
+
+/*0429  二维码效果*/
+.navbar-default .navbar-header .weixin{
+    display: inline-block;
+    margin-top: 12px;
+    position: relative;
+}
+.navbar-default .navbar-header .weixin .erweima{
+    margin-top: 10px;
+    position: absolute;
+    display: none;
+}
+.navbar-default .navbar-header .weixin .erweima img{
+    display: inline-block;
+}
+.navbar-default .navbar-header .weixin .weixin2:hover +.erweima{
+    display: inline;
+    /*margin-top: 16px;*/
+    /*position: relative;*/
+}
+
+
+
+.navbar-default .navbar-right{
+    margin-top: 10px;
+}
+
 .navbar-default .navbar-nav>li>a {
     font-size: 16px;
     font-weight: bold;
@@ -79,19 +107,10 @@ body{
     /*height: 60px;*/
     padding-top: 5px;
     padding-bottom: 5px;
-    border-bottom: 1px dashed #1b6d85;
+    /*border-bottom: 1px dashed #1b6d85;*/
+    border-bottom: 1px solid ;
 }
 
-#bbs4 .outer .abstract{
-    /*height: 60px;*/
-    margin-left:8%;
-    margin-top: 20px;
-    padding: 4%;
-    background-color: #F5F5F5;
-    text-align: left;
-    font-size: 18px;
-
-}
 
 
 
@@ -99,20 +118,23 @@ body{
     text-align: center;
 }
 #bbs4 .col-md-12 .inner .right{
-    font-size: 26px;
+    font-size: 22px;
     /*font-weight: bold;*/
     text-align: center;
     /*color: #009933;*/
-    color: #1b6d85;
+    /*color: #1b6d85;*/
     /*margin-left: 15px;*/
 }
 #bbs4 .col-md-12 .inner .right02{
-    font-size: 18px;
+    font-size: 14px;
     /*font-weight: bold;*/
     text-align: center;
     /*color: #009933;*/
     /*margin-left: 15px;*/
-    color: gainsboro;
+    /*color: gainsboro;*/
+    color: #009933;
+    margin: 8px 0px;
+    display: block;
 }
 
 #bbs4 .col-md-12 .col-md-10{
@@ -124,17 +146,39 @@ body{
     background-color: #FAFAFA;
     overflow: auto;
 }
+
+#bbs4 .outer .abstract{
+    /*height: 60px;*/
+    margin-left:8%;
+    margin-top: 20px;
+    /*padding: 4%;*/
+    background-color: #F5F5F5;
+    text-align: left;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+
 #bbs4 .col-md-12 .outer .wenzi{
     /*min-height: 720px;*/
     /*margin: 20px 40px;*/
     /*margin: 2% 2% 2% 2%;*/
     /*background-color: #009933;*/
-    padding: 4%;
+    /*padding: 4%;*/
+    margin-left:8%;
     padding-top: 20px;
     line-height: 18px;
     overflow: auto;
     /*text-align: center;*/
 }
+
+/*0422*/
+#bbs4 .col-md-12 .outer .wenzi span{
+    /*display: block;*/
+    /*line-height: 50px;*/
+    /*margin-top: 10px;*/
+}
+
 
 /*0409*/
 #bbs4 .col-md-12 .outer .image{

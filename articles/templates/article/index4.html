@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/article" class="navbar-brand">海吉星</a>
+            <a href="/article" class="navbar-brand"><img src="{% static 'article/images/LOGO3.PNG' %}" class="img-responsive" alt="logo"/></a>
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
@@ -39,14 +39,14 @@
 
 
 
-                <li><a href="/article">首页</a></li>
-                <li><a href="/article/qiye">企业概况</a></li>
-                <li><a href="/article/list/1/1">新闻中心</a></li>
-                <li><a href="/article/bianminlist/3/1">便民信息</a></li>
-                <li><a href="/article/yuanqu">园区指南</a></li>
-                <li><a href="/article/dangqunlist/6/1">党群建设</a></li>
-                <li><a href="/article/gonggaolist/9/1">公告栏</a></li>
-                <li><a href="/article/fupin">扶贫中心</a></li>
+                <li {% if request.path == '/'%}class="navactive" {% endif %} ><a href="/">首页</a></li>
+                <li {% if request.path == '/qiye'%}class="navactive" {% endif %} ><a href="/qiye">企业概况</a></li>
+                <li {% if request.path|slice:':5' == '/list'%}class="navactive" {% endif %}><a href="/list/1/1">新闻中心</a></li>
+                <li {% if request.path|slice:':12' == '/bianminlist'%}class="navactive" {% endif %}><a href="/bianminlist/3/1">便民信息</a></li>
+                <li {% if request.path|slice:':7' == '/yuanqu'%}class="navactive" {% endif %}><a href="/yuanqu">园区指南</a></li>
+                <li {% if request.path|slice:':12' == '/dangqunlist'%}class="navactive" {% endif %}><a href="/dangqunlist/6/1">党群建设</a></li>
+                <li {% if request.path|slice:':12' == '/gonggaolist'%}class="navactive" {% endif %}><a href="/gonggaolist/9/1">公告栏</a></li>
+                <li {% if request.path|slice:':6' == '/fupin'%}class="navactive" {% endif %}><a href="/fupin">扶贫中心</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -58,7 +58,7 @@
 <!--home-->
 <section id="home">
 {#    <img src="images/1.jpg" class="img-responsive" alt="首页图片"/>#}
-    <img src="{% static 'article/images/1.jpg' %}" class="img-responsive" alt="首页图片"/>
+    <img src="{% static 'article/images/首页30.jpg' %}" class="img-responsive" alt="首页图片"/>
 </section>
 <!--home-->
 
@@ -71,19 +71,19 @@
                 <div class="outer ">
                     <div class="inner ">
                         <span class="left">企业简介</span>
-                        <a href="#">详情>></a>
+                        <a href="/article/qiye">详情>></a>
                     </div>
 
                     <div class="inner2 ">
                         <div class="col-md-6 ">
-                            <img src="{% static 'article/images/wlyght.jpg' %}" alt="123" class="img-responsive">
+                            <img src="{% static 'article/images/园区平面图.jpg' %}" alt="123" class="img-responsive">
                             <!--<img src="images/wlyght.jpg" alt="123" class="img-rounded img-responsive">-->
                         </div>
                         <div class="col-md-6 ">
-                                <P class="col-md-12  text-left">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;深圳市农产品集团股份有限公司（股票代码：000061）成立于1989年，是一家以投资、开发、建设、经营和管理农产品批发市场为核心业务、
-                                    总资产超过180亿元的大型现代化农产品流通企业集团，旗下全资、控股企业42家，分公司2家，主要参股企业22家。深农集团肩负使命、情系民生，始终致力于中国农产品流通领域的发展与进步。
-                                    率先开创农批市场网络化经营模式，在深圳、北京、上海、天津、成都、西安、长沙、武汉等26个大中城市经营管理了38家综合批发市场和网上交...
+                                <P class="text-left">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 深圳海吉星国际农产品物流园（以下称“深圳海吉星”）由深圳国有上市公司深圳市农产品股份有限公司投资建设，是深圳市政府规划的唯一的一级农产品批发市场，
+                                    是国家发改委国债项目、深圳市重大建设项目，深圳市“十一五”规划重点项目。项目位于深圳市龙岗区平湖物流基地内，一期占地面积30.3万平方米，规划建筑面积82万平方米，投资总额18亿元。
+                                    深圳海吉星以“绿色交易”为核心理念，创新食品安全管控模式，在行业内首家引进第三方实验室独立开展检测...
                                 </P>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
 
                     <div class="inner2">
                         <div class="col-md-6 ">
-                            <img src="{% static 'article/images/food2.png' %}" alt="123" class="img-responsive">
+                            <img src="{% static 'article/images/食品安全4.jpg' %}" alt="123" class="img-responsive">
                             <!--<img src="images/wlyght.jpg" alt="123" class="img-rounded img-responsive">-->
                         </div>
                         <div class="col-md-6 ">
@@ -155,8 +155,8 @@
                                         <tr>
 
                                             <th>品名</th>
-                                            <th>价格(元)</th>
-                                            <th>单位(kg)</th>
+                                            <th>价格(元/kg)</th>
+                                            <th>产地</th>
                                             <th>发布日期</th>
                                         </tr>
                                     </thead>
@@ -210,6 +210,25 @@
                 </div>
             </div>
 
+{#            <div class="col-md-4 ">#}
+{#                <div class="outer">#}
+{#                    <div class="inner">#}
+{#                        <span class="left">媒体播报</span>#}
+{#                        <a href="http://127.0.0.1:8000/article/list/2/1?sort=price">更多>></a>#}
+{#                    </div>#}
+{#                    <div class="inner2">#}
+{#                        {% get_recent_entries_02 as recent_entry_list_02 %}#}
+{#                        {% for entry in recent_entry_list_02 %}#}
+{#                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:24 }}</li></a>#}
+{#                        {% endfor %}#}
+{#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
+{#                    </div>#}
+{##}
+{##}
+{#                </div>#}
+{#            </div>#}
+
+
             <div class="col-md-4 ">
                 <div class="outer">
                     <div class="inner">
@@ -217,16 +236,16 @@
                         <a href="http://127.0.0.1:8000/article/list/2/1?sort=price">更多>></a>
                     </div>
                     <div class="inner2">
-                        {% get_recent_entries_02 as recent_entry_list_02 %}
-                        {% for entry in recent_entry_list_02 %}
-                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:24 }}</li></a>
+                        {% get_recent_entries_12 as recent_entry_list_12 %}
+                        {% for entry in recent_entry_list_12 %}
+                            <a href="{{ entry.url }}" target="_blank"><li>{{ entry.title|truncatechars:24 }}</li></a>
                         {% endfor %}
 {#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
                     </div>
-
-
                 </div>
             </div>
+
+
             <div class="col-md-4 ">
                 <div class="outer">
                     <div class="inner">
@@ -296,12 +315,12 @@
                         <a href="#">更多>></a>
                     </div>
                     <div class="inner2">
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
-                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>
+                        <a href="/yuanqu/gouwu" target="_blank"><li>海吉星物流园平面图和商品销售导购图</li></a>
+                        <a href="/yuanqu/yewu" target="_blank"><li>租赁业务、装修业务、证件办理、停车卡业务办理</li></a>
+                        <a href="/yuanqu/cheka" target="_blank"><li>查看海吉星物流园临时车卡和月卡收费标准</li></a>
+                        <a href="/yuanqu/jiesuan" target="_blank"><li>IC卡业务、结算及缴费业务办理明细</li></a>
+                        <a href="/yuanqu/kefu" target="_blank"><li>现场管理办公点与客服服务点分布图</li></a>
+
                     </div>
 
 
@@ -349,7 +368,7 @@ $(function () {
 
     $.ajax({
     type: "get",
-    url: "article/price",
+    url: "/price/price",
     // timeout 可以设置超时时间, 表示如果 2s 内, 响应还没有回来, 就认为超时
     timeout: 2000,
     // 发送ajax前,会调用的函数,
@@ -392,10 +411,10 @@ $(function () {
         console.log(item);
         str = '<tr>' +
 
+            '<td>' + item[0] + '</td>' +
             '<td>' + item[1] + '</td>' +
-            '<td>' + item[2] + '</td>' +
             '<td>' + item[3] + '</td>' +
-            '<td>' + item[4] + '</td>' +
+            '<td>' + item[2] + '</td>' +
             '</tr>'
 
         $('.tbl-body tbody').append(str);

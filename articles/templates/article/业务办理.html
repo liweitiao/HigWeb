@@ -1,18 +1,19 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
     <title>HIGREEN海吉星</title>
     <link href="{% static 'article/css/reset.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'article/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'article/css/bootstrap-maizi4信息详情.css' %}" rel="stylesheet">
+    <link href="{% static 'article/css/bootstrap-园区指南各细项.css' %}" rel="stylesheet">
     <link href="{% static 'article/css/animate.css' %}" rel="stylesheet">
-    <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
 </head>
+
 <body>
+
 <!--导航-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -24,24 +25,17 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="/article" class="navbar-brand"><img src="{% static 'article/images/LOGO3.PNG' %}" class="img-responsive" alt="logo"/></a>
-
-            <div class="weixin">
-                <img src="{% static 'article/images/weixin.PNG' %}" class="img-responsive weixin2" alt="logo"/>
-                <div class="erweima">
-                    <img src="{% static 'article/images/扶贫小程序码.PNG' %}">
-{#                    <img src="{% static 'article/images/扶贫小程序码.PNG' %}">#}
-                </div>
-            </div>
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+
                 <li {% if request.path == '/'%}class="navactive" {% endif %} ><a href="/">首页</a></li>
                 <li {% if request.path == '/qiye'%}class="navactive" {% endif %} ><a href="/qiye">企业概况</a></li>
                 <li {% if request.path|slice:':5' == '/list'%}class="navactive" {% endif %}><a href="/list/1/1">新闻中心</a></li>
                 <li {% if request.path|slice:':12' == '/bianminlist'%}class="navactive" {% endif %}><a href="/bianminlist/3/1">便民信息</a></li>
-                <li {% if request.path == '/yuanqu'%}class="navactive" {% endif %}><a href="/yuanqu">园区指南</a></li>
+                <li {% if request.path|slice:':7' == '/yuanqu'%}class="navactive" {% endif %}><a href="/yuanqu">园区指南</a></li>
                 <li {% if request.path|slice:':12' == '/dangqunlist'%}class="navactive" {% endif %}><a href="/dangqunlist/6/1">党群建设</a></li>
                 <li {% if request.path|slice:':12' == '/gonggaolist'%}class="navactive" {% endif %}><a href="/gonggaolist/9/1">公告栏</a></li>
                 <li {% if request.path|slice:':6' == '/fupin'%}class="navactive" {% endif %}><a href="/fupin">扶贫中心</a></li>
@@ -54,52 +48,43 @@
 <!--导航-->
 
 
-
-
-
 <!--home-->
 <section id="home">
-    <img src="{% static 'article/images/详情信息5.jpg' %}" class="img-responsive" alt="企业概况图片"/>
+    <img src="{% static 'article/images/园区指南14.jpg' %}" class="img-responsive" alt="企业概况图片"/>
 </section>
 <!--home-->
 
 
-<!--bbs4-->
 <section id="bbs4">
     <div class="container">
         <div class="row wow fadeInUp" data-wow-duration="0.5s">
 
-            <!--企业简介-->
-            <div class="col-md-12 col-xs-12  bbsRight selected">
+            <!--采购指南-->
+            <div class="col-md-12 col-xs-12">
                 <div class="outer">
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
                         <div class="inner">
-                            <span class="right">{{ article.title }}</span>
-                            <br>
-                            <span class="right02">发布时间：{{ article.created_time|date:'Y-m-d'}}&nbsp;&nbsp;&nbsp;&nbsp;浏览次数:{{ article.visiting }}</span>
+                            <span class="right">客服业务</span>
                         </div>
                     </div>
                     <div class="col-md-1"></div>
 
-
-
-                    <!--<div class="col-md-2"></div>-->
-                    <div class="col-md-10 abstract">{{ article.abstract }}</div>
-                    <!--<div class="col-md-1"></div>-->
-
-
-
-                    <div class="col-md-10 wenzi">{{ article.body | safe }}</div>
-
-
+                    <div class="col-md-12">
+                        <div class="conter_con">
+                            <img src="{% static 'article/images/租赁业务02.jpg' %}" alt="">
+                            <img src="{% static 'article/images/装修业务02.jpg' %}" alt="">
+                            <img src="{% static 'article/images/证件办理02.jpg' %}" alt="">
+                            <img src="{% static 'article/images/停车卡业务02.jpg' %}" alt="">
+                            <img src="{% static 'article/images/广告位招租02.jpg' %}" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
 
-        </div>
+       </div>
     </div>
 </section>
-<!--bbs4-->
 
 
 <!--footer-->
@@ -124,12 +109,15 @@
 <!--footer-->
 
 
-<script src="{% static 'article/js/jquery-1.12.4.js' %}"></script>
-<script src="{% static 'article/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
-<script src="{% static 'article/js/wow.min.js' %}"></script>
-<script>
-
-</script>
+    <!--<script src="jquery-1.12.4.js"></script>-->
+{#    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>#}
+    <script src="{% static 'article/js/jquery-1.12.4.js' %}"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=okhe3W5bcHOFL2yY1hArBEHzG6CwcCe2"></script>
+    <script src="{% static 'article/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
+    <script src="{% static 'article/js/wow.min.js' %}"></script>
+    <script>
+    </script>
 </body>
+
 </html>

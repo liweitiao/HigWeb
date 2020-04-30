@@ -11,6 +11,7 @@ from . import models
 
 
 def index(request):
+    print(request.path)
     return render(request, 'article/index4.html', locals())
 
 
@@ -30,6 +31,7 @@ def price(request):
 def detail(request, article_id):
     article = models.Entry.objects.get(id=article_id)
     category = models.Category.objects.filter(id=article.id)
+    article.increase_visiting()
     print(article.category)
     print(category)
     print(article.id)
@@ -37,6 +39,7 @@ def detail(request, article_id):
 
 
 def qiye(request):
+    print(request.path)
     return render(request, 'article/企业概况3练习.html', locals())
 
 
@@ -85,6 +88,20 @@ def bianmin(request):
 def yuanqu(request):
     return render(request, 'article/园区指南.html', locals())
 
+def gouwu(request):
+    return render(request, 'article/购物指南.html', locals())
+
+def yewu(request):
+    return render(request, 'article/业务办理.html', locals())
+
+def cheka(request):
+    return render(request, 'article/车卡业务.html', locals())
+
+def jiesuan(request):
+    return render(request, 'article/结算业务.html', locals())
+
+def kefu(request):
+    return render(request, 'article/客服业务.html', locals())
 
 def fupin(request):
     return render(request, 'article/扶贫中心.html', locals())
@@ -253,9 +270,93 @@ class ListView(View):
         #
         # # 获取商品的分类信息
         # types = GoodsType.objects.all()
+        if int(type_id)==1:
+            category = models.Category.objects.get(id=type_id)
+            entry_list = models.Entry.objects.filter(category=category)
+        elif int(type_id)==2:
+            category = models.Category.objects.get(id=type_id)
+            entry_list = models.Media.objects.all()
+            print(123)
 
-        category = models.Category.objects.get(id=type_id)
-        entry_list = models.Entry.objects.filter(category=category)
+        # 获取排序的方式 # 获取分类商品的信息
+        # sort=default 按照默认id排序
+        # sort=price 按照商品价格排序
+        # sort=hot 按照商品销量排序
+        sort = request.GET.get('sort')
+        if not sort:
+            sort = 'default'
+        print(sort)
+        #
+        # if sort == 'price':
+        #     skus = GoodsSKU.objects.filter(type=type).order_by('price')
+        # elif sort == 'hot':
+        #     skus = GoodsSKU.objects.filter(type=type).order_by('-sales')
+        # else:
+        #     sort = 'default'
+        #     skus = GoodsSKU.objects.filter(type=type).order_by('-id')
+
+        # 对数据进行分页
+        paginator = Paginator(entry_list, 1)
+
+        # 获取第page页的内容
+        try:
+            page = int(page)
+        except Exception as e:
+            page = 1
+
+        if page > paginator.num_pages:
+            page = 1
+
+        # 获取第page页的Page实例对象
+        # skus_page = paginator.page(page)
+        entry_list_page = paginator.page(page)
+
+
+        # 1.总页数小于5页，页面上显示所有页码
+        # 2.如果当前页是前3页，显示1-5页
+        # 3.如果当前页是后3页，显示后5页
+        # 4.其他情况，显示当前页的前2页，当前页，当前页的后2页
+        num_pages = paginator.num_pages
+        if num_pages < 5:
+            pages = range(1, num_pages+1)
+        elif page <= 3:
+            pages = range(1, 6)
+        elif num_pages - page <= 2:
+            pages = range(num_pages-4, num_pages+1)
+        else:
+            pages = range(page-2, page+3)
+
+        # 获取新品信息
+        # new_skus = GoodsSKU.objects.filter(type=type).order_by('-create_time')[:2]
+
+
+        # 组织模板上下文
+        context = {'entry_list_page': entry_list_page,
+                   'pages': pages,
+                   'sort': sort,
+                   'category':category}
+        print(category)
+
+        # 使用模板
+        return render(request, 'article/新闻中心3.html', context)
+
+
+class MediaListView(View):
+    '''列表页'''
+    def get(self, request, page):
+        '''显示列表页'''
+        # 获取种类信息
+        # try:
+        #     type = GoodsType.objects.get(id=type_id)
+        # except GoodsType.DoesNotExist:
+        #     # 种类不存在
+        #     return redirect(reverse('goods:index'))
+        #
+        # # 获取商品的分类信息
+        # types = GoodsType.objects.all()
+
+        # category = models.Category.objects.get(id=type_id)
+        entry_list = models.Media.objects.all()
 
         # 获取排序的方式 # 获取分类商品的信息
         # sort=default 按照默认id排序
@@ -312,8 +413,7 @@ class ListView(View):
         # 组织模板上下文
         context = {'entry_list_page': entry_list_page,
                    'pages': pages,
-                   'sort': sort,
-                   'category':category}
+                   'sort': sort}
 
         # 使用模板
         return render(request, 'article/新闻中心3.html', context)
