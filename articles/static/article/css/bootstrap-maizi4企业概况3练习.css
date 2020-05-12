@@ -25,6 +25,27 @@ body{
     /*line-height: 35px;*/
 }
 
+/*0429  二维码效果*/
+.navbar-default .navbar-header .weixin{
+    display: inline-block;
+    margin-top: 12px;
+    position: relative;
+}
+.navbar-default .navbar-header .weixin .erweima{
+    margin-top: 10px;
+    position: absolute;
+    display: none;
+}
+.navbar-default .navbar-header .weixin .erweima img{
+    display: inline-block;
+}
+.navbar-default .navbar-header .weixin .weixin2:hover +.erweima{
+    display: inline;
+    /*margin-top: 16px;*/
+    /*position: relative;*/
+}
+
+
 .navbar-default .navbar-right{
     margin-top: 10px;
 }

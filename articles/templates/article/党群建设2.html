@@ -22,7 +22,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/article" class="navbar-brand"><img src="{% static 'article/images/LOGO3.PNG' %}" class="img-responsive" alt="logo"/></a>
+            <a href="/" class="navbar-brand"><img src="{% static 'article/images/LOGO3.PNG' %}" class="img-responsive" alt="logo"/></a>
+
+{#            <div class="weixin">#}
+{#                <img src="{% static 'article/images/weixin.PNG' %}" class="img-responsive weixin2" alt="logo"/>#}
+{#                <div class="erweima">#}
+{#                    <img src="{% static 'article/images/服务平台.png' %}">#}
+{#                    <img src="{% static 'article/images/扶贫小程序码.PNG' %}">#}
+{#                </div>#}
+{#            </div>#}
+
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
@@ -73,7 +82,7 @@
                         <a href="{% url 'article:dangqunlist' 6 1 %}" {% if sort == 'default' %}class="active"{% endif %}>党员e站<br></a>
 				        <a href="{% url 'article:dangqunlist' 7 1 %}?sort=qingnian" {% if sort == 'qingnian' %}class="active"{% endif %}>青年之声<br></a>
                         <a href="{% url 'article:dangqunlist' 8 1 %}?sort=zhigong" {% if sort == 'zhigong' %}class="active"{% endif %}>职工之家<br></a>
-
+                        <a href="http://phcpc.dbc61.com">党建平台</a>
 
 
                     </div>
@@ -111,8 +120,8 @@
                                                     <img src="{% static 'article/images/wlyght.jpg' %}">
                                                     {% endif %}
                                                 </a>
-                                                <a href="{{ entry.get_absolute_url }}" class="news_title fl">{{ entry.title }}</a>
-                                                <a href="#" class="news_detail fl">{{ entry.abstract|truncatechars:108 }}</a>
+                                                <a href="{% url 'article:detail' 'dangqunlist' entry.id %}" class="news_title fl">{{ entry.title }}</a>
+                                                <a href="{% url 'article:detail' 'dangqunlist' entry.id %}" class="news_detail fl">{{ entry.abstract|truncatechars:108 }}</a>
                                                 <div class="author_info fl">
                                                     <div class="source fl">
                                                         <span>阅读量：{{ entry.visiting }}</span>

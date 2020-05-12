@@ -1,0 +1,132 @@
+{% load staticfiles %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>bootstrap-table表格客户端分页</title>
+
+{#	<link rel="stylesheet" href="./bootstrap/css/bootstrap/bootstrap.css" />#}
+{#	<link rel="stylesheet" href="./bootstrap-table/bootstrap-table.css" />	#}
+
+    <link rel="stylesheet" href="{% static 'article/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'article/css/bootstrap-table.css' %}" />
+
+    <script src="{% static 'article/js/jquery-1.12.4.js' %}"></script>
+    <script src="{% static 'article/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
+    <script src="{% static 'article/js/wow.min.js' %}"></script>
+{#	<script src="./bootstrap/js/bootstrap.js"></script>	#}
+{#	<script src="./bootstrap-table/bootstrap-table.js"></script>#}
+{#	<script src="./bootstrap-table/bootstrap-table-export.js"></script>#}
+{#	<script src="./extends/tableExport/jquery.base64.js"></script>#}
+{#	<script src="./extends/tableExport/tableExport.js"></script>#}
+
+    <script src="{% static 'article/js/bootstrap-table.js' %}"></script>
+    <script src="{% static 'article/js/bootstrap-table-export.js' %}"></script>
+    <script src="{% static 'article/js/jquery.base64.js' %}"></script>
+    <script src="{% static 'article/js/tableExport.js' %}"></script>
+
+</head>
+
+<body >
+	<div id="reportTableDiv" >
+		<table id="reportTable"></table>
+	</div>
+	<script type="text/javascript">
+	//手动制造30条数据
+{#	var datas  = [];#}
+{#	for(var i=0;i<30;i++){#}
+{#		datas[i]={"name":"傻逼"+i+"号","age":"年龄："+i+"岁","sex":"男"+i,"price":12}#}
+{#	}#}
+	
+	$(function () {
+
+	    var datas = [];
+	    $.ajax({
+            type: "get",
+            url: "/price/price",
+            // timeout 可以设置超时时间, 表示如果 2s 内, 响应还没有回来, 就认为超时
+            timeout: 20000,
+
+            success: function (info) {
+                console.log(info)
+                datas = info
+
+                $('#reportTable').bootstrapTable({
+                    method: 'get',
+                    cache: false,
+                    height: 700,
+        {#			striped: true,#}
+                    pagination: true,
+                    pageSize: 20,
+                    pageNumber:1,
+                    pageList: [10, 20, 50, 100, 200, 500],
+        {#			search: true,#}
+        {#			showColumns: true,#}
+        {#			showRefresh: false,#}
+        {#			showExport: false,#}
+                    exportTypes: ['csv','txt','xml'],
+        {#			search: true,#}
+        {#			clickToSelect: false,#}
+        {#			clickToSelect: true,#}
+                    sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
+                    columns:
+                    [
+        {#				{field:"checked",checkbox:true},#}
+        {#				{field:"name",title:"测试姓名",align:"center",valign:"middle",sortable:"true"},#}
+        {#				{field:"age",title:"年龄",align:"center",valign:"middle",sortable:"true"},#}
+        {#				{field:"sex",title:"性别",align:"center",valign:"middle",sortable:"true"},#}
+
+                        {field:"name",title:"品种",align:"center",sortable:"true"},
+                        {field:"price",title:"价格(元\\kg)",align:"center",sortable:"true"},
+                        {field:"area",title:"产地",align:"center",sortable:"true"},
+                        {field:"day",title:"日期",align:"center",sortable:"true"},
+                    ],
+                    data:datas,
+                });
+            }
+        })
+
+
+
+
+{#		$('#reportTable').bootstrapTable({#}
+{#			method: 'get',#}
+{#			cache: false,#}
+{#			height: 400,#}
+{#			striped: true,#}
+{#			pagination: true,#}
+{#			pageSize: 20,#}
+{#			pageNumber:1,#}
+{#			pageList: [10, 20, 50, 100, 200, 500],#}
+{#			search: true,#}
+{#			showColumns: true,#}
+{#			showRefresh: false,#}
+{#			showExport: false,#}
+{#			exportTypes: ['csv','txt','xml'],#}
+{#			search: true,#}
+{#			clickToSelect: false,#}
+{#			clickToSelect: true,#}
+{#			sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*） #}
+{#			columns: #}
+{#			[#}
+{#				{field:"checked",checkbox:true},#}
+{#				{field:"name",title:"测试姓名",align:"center",valign:"middle",sortable:"true"},#}
+{#				{field:"age",title:"年龄",align:"center",valign:"middle",sortable:"true"},#}
+{#				{field:"sex",title:"性别",align:"center",valign:"middle",sortable:"true"},#}
+{##}
+{#                {field:"name",title:"测试姓名",align:"center",sortable:"true"},#}
+{#				{field:"age",title:"年龄",sortable:"true"},#}
+{#				{field:"sex",title:"性别",sortable:"true"},#}
+{#                {field:"price",title:"价格",sortable:"true"},#}
+{#			],#}
+{#			data:datas,#}
+{#		});	#}
+
+
+	});	
+	</script>
+<div>
+	
+</body>
+</html>

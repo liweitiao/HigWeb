@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
+# from ckeditor.fields import RichTextField
+# from ckeditor_uploader.fields import RichTextUploadingField
 from DjangoUeditor.models import UEditorField
 
 # Create your models here.
@@ -48,7 +48,7 @@ class Entry(models.Model):
 
     # body = RichTextUploadingField(verbose_name='文章正文')
 
-    body = UEditorField(verbose_name='文章正文')
+    body = UEditorField(verbose_name='文章正文', width=800)
 
     # tags = models.ManyToManyField('Tag', verbose_name='文章+标签')
 

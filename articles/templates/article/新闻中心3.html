@@ -22,7 +22,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/article" class="navbar-brand"><img src="{% static 'article/images/LOGO3.PNG' %}" class="img-responsive" alt="logo"/></a>
+            <a href="/" class="navbar-brand"><img src="{% static 'article/images/LOGO3.PNG' %}" class="img-responsive" alt="logo"/></a>
+
+            <div class="weixin">
+                <img src="{% static 'article/images/weixin.PNG' %}" class="img-responsive weixin2" alt="logo"/>
+                <div class="erweima">
+                    <img src="{% static 'article/images/服务平台.png' %}">
+{#                    <img src="{% static 'article/images/扶贫小程序码.PNG' %}">#}
+                </div>
+            </div>
+
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
@@ -121,8 +130,9 @@
                                                 </div>
                                             {% endif %}
                                         </a>
-                                        <a href="{{ entry.get_absolute_url }}" class="news_title fl">{{ entry.title }}</a>
-                                        <a href="{{ entry.get_absolute_url }}" class="news_detail fl">{{ entry.abstract|truncatechars:108 }}</a>
+{#                                        <a href="{{ entry.get_absolute_url }}" class="news_title fl">{{ entry.title }}</a>#}
+                                        <a href="{% url 'article:detail' 'list' entry.id %}" class="news_title fl">{{ entry.title }}</a>
+                                        <a href="{% url 'article:detail' 'list' entry.id %}" class="news_detail fl">{{ entry.abstract|truncatechars:108 }}</a>
                                         <div class="author_info fl">
                                             <div class="source fl">
                                                 <span>阅读量：{{ entry.visiting }}</span>

@@ -38,6 +38,16 @@ def detail(request, article_id):
     return render(request, 'article/信息详情.html', locals())
 
 
+def ListDetail(request, artical_category, entry_id):
+    article = models.Entry.objects.get(id=entry_id)
+    category = models.Category.objects.filter(id=article.id)
+    article.increase_visiting()
+    print(article.category)
+    print(category)
+    print(article.id)
+    return render(request, 'article/信息详情.html', locals())
+
+
 def qiye(request):
     print(request.path)
     return render(request, 'article/企业概况3练习.html', locals())
@@ -84,6 +94,8 @@ def bianmin(request):
     page_data = pagination_data(paginator, page)
     return render(request, 'article/便民信息.html', locals())
 
+def jiage(request):
+    return render(request, 'article/价格分页.html', locals())
 
 def yuanqu(request):
     return render(request, 'article/园区指南.html', locals())
@@ -461,6 +473,19 @@ class BianminListView(View):
 
         # 使用模板
         return render(request, 'article/便民信息2.html', context)
+
+
+class JiageView(View):
+    '''水果价格'''
+    def get(self, request):
+        sort = request.GET.get('sort')
+        return render(request, 'article/水果价格.html', locals())
+
+
+class ShucaiView(View):
+    def get(self, request):
+        sort = request.GET.get('sort')
+        return render(request, 'article/蔬菜价格.html', locals())
 
 
 class DangqunListView(View):

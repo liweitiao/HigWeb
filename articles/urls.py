@@ -1,19 +1,23 @@
 from django.conf.urls import url, include
 from . import views
-from articles.views import ListView, MediaListView, BianminListView, DangqunListView, GonggaoListView
+from articles.views import ListView, MediaListView, BianminListView, DangqunListView, GonggaoListView, JiageView, ShucaiView
 
 app_name = 'article'
 
 urlpatterns = [
     url(r'^$', views.index, name='article_index'),
     url(r'^article/price', views.price, name='article_price'),
-    url(r'^(?P<article_id>[0-9]+)/$', views.detail, name='article_detail'),
+    # url(r'^(?P<article_id>[0-9]+)/$', views.detail, name='article_detail'),
+    # url(r'^list/detail/(?P<article_id>[0-9]+)/$', views.detail, name='article_detail'),
     url(r'^qiye$', views.qiye, name='article_qiye'),
     url(r'^xinwen$', views.xinwen, name='article_xinwen'),
     url(r'^xinwen2$', views.xinwen2, name='article_xinwen2'),
     url(r'^list/(?P<type_id>\d+)/(?P<page>\d+)$', ListView.as_view(), name='list'), # 新闻列表页
+    url(r'^(?P<artical_category>\w+)/detail/(?P<entry_id>\d+)$', views.ListDetail, name='detail'), # 新闻详情页
     # url(r'^medialist/(?P<page>\d+)$', MediaListView.as_view(), name='medialist'), # 媒体播报列表页
     url(r'^bianminlist/(?P<type_id>\d+)/(?P<page>\d+)$', BianminListView.as_view(), name='bianminlist'),
+    url(r'^bianminlist/jiage$', JiageView.as_view(), name='jiagelist'),
+    url(r'^bianminlist/shucai$', ShucaiView.as_view(), name='shucailist'),
     url(r'^dangqunlist/(?P<type_id>\d+)/(?P<page>\d+)$', DangqunListView.as_view(), name='dangqunlist'),
     url(r'^gonggaolist/(?P<type_id>\d+)/(?P<page>\d+)$', GonggaoListView.as_view(), name='gonggaolist'),
     url(r'^bianmin$', views.bianmin, name='article_bianmin'),
@@ -28,4 +32,5 @@ urlpatterns = [
     url(r'^yuanqu/cheka$', views.cheka, name='article_cheka'),
     url(r'^yuanqu/jiesuan$', views.jiesuan, name='article_jiesuan'),
     url(r'^yuanqu/kefu$', views.kefu, name='article_kefu'),
+    url(r'^jiage$', views.jiage, name='article_jiage'),
 ]

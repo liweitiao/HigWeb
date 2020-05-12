@@ -10,7 +10,7 @@
     <link href="{% static 'article/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'article/css/bootstrap-maizi4便民信息.css' %}" rel="stylesheet">
     <link href="{% static 'article/css/animate.css' %}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{% static 'article/css/bootstrap-table.css' %}" />
 </head>
 <body>
 <!--导航-->
@@ -78,7 +78,8 @@
                         <a href="{% url 'article:bianminlist' 3 1 %}" {% if sort == 'default' %}class="active"{% endif %}>政策法规<br></a>
 				        <a href="{% url 'article:bianminlist' 4 1 %}?sort=shian" {% if sort == 'shian' %}class="active"{% endif %}>食安與情<br></a>
                         <a href="{% url 'article:bianminlist' 5 1 %}?sort=shipin" {% if sort == 'shipin' %}class="active"{% endif %}>食品知识<br></a>
-                        <a href="{% url 'article:jiagelist' %}?sort=shuiguo" {% if sort == 'shuiguo' %}class="active"{% endif %}>水果价格</a>
+                        <a href="{% url 'article:jiagelist' %}?sort=shuiguo" {% if sort == 'shuiguo' %}class="active"{% endif %} id="shuiguo">水果价格</a>
+                        <a href="{% url 'article:shucailist' %}?sort=shucai" {% if sort == 'shucai' %}class="active"{% endif %} id="shucai">蔬菜价格</a>
                     </div>
 
                 </div>
@@ -89,65 +90,22 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-11">
                         <div class="inner">
-                            {% if sort == 'default' %}
-                                <span class="right">政策法规</span>
-                                {% elif sort == 'shian' %}
-                                    <span class="right">食安舆情</span>
-                                {% elif sort == 'shipin' %}
-                                    <span class="right">食品知识</span>
+                            {% if sort == 'shuiguo' %}
+                                <span class="right">水果价格</span>
+                                {% elif sort == 'shucai' %}
+                                    <span class="right">蔬菜价格</span>
                             {% endif %}
                         </div>
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-11">
                         <div class="conter_con noactive">
-                            <ul class="list_con fl">
-
-                                {#修改成动态分页#}
-                                        {% for entry in entry_list_page %}
-                                            <li>
-                                                <a href="#" class="news_pic fl">
-                                                    {% if entry.img %}
-                                                    <img src="{{ entry.img.url }}">
-                                                    {% else %}
-                                                    <img src="{% static 'article/images/wlyght.jpg' %}">
-                                                    {% endif %}
-                                                </a>
-                                                <a href="{% url 'article:detail' 'bianminlist' entry.id %}" class="news_title fl">{{ entry.title }}</a>
-                                                <a href="{% url 'article:detail' 'bianminlist' entry.id %}" class="news_detail fl">{{ entry.abstract|truncatechars:108 }}</a>
-                                                <div class="author_info fl">
-                                                    <div class="source fl">
-                                                        <span>浏览次数：{{ entry.visiting }}</span>
-                                                    </div>
-                                                    <div class="time fl">{{ entry.created_time }}</div>
-                                                </div>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                            <hr />
-                            <!--/.pagination-->
-                            <div class="pagenation">
-                                {% if entry_list_page.has_previous %}
-                                <a href="{% url 'article:list' category.id entry_list_page.previous_page_number %}?sort={{ sort }}"><上一页</a>
-                                {% endif %}
-                                {% for pindex in pages %}
-                                    {% if pindex == entry_list_page.number %}
-                                        <a href="{% url 'article:bianminlist' category.id pindex %}?sort={{ sort }}" class="active">{{ pindex }}</a>
-                                    {% else %}
-                                        <a href="{% url 'article:bianminlist' category.id pindex %}?sort={{ sort }}">{{ pindex }}</a>
-                                    {% endif %}
-                                {% endfor %}
-                                {% if entry_list_page.has_next %}
-                                <a href="{% url 'article:bianminlist' category.id entry_list_page.next_page_number %}?sort={{ sort }}">下一页></a>
-                                {% endif %}
+                            <div id="reportTableDiv" >
+                                <table id="reportTable"></table>
                             </div>
 
                         </div>
-
-
                     </div>
-
-
                 </div>
             </div>
 
@@ -184,29 +142,56 @@
 <script src="{% static 'article/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'article/js/jquery.singlePageNav.min.js' %}"></script>
 <script src="{% static 'article/js/wow.min.js' %}"></script>
+<script src="{% static 'article/js/bootstrap-table.js' %}"></script>
+<script src="{% static 'article/js/bootstrap-table-export.js' %}"></script>
+<script src="{% static 'article/js/jquery.base64.js' %}"></script>
+<script src="{% static 'article/js/tableExport.js' %}"></script>
 <script>
-    $(function(){
-        /*导航跳转效果插件*/
-{#        $('.nav').singlePageNav({#}
-{#            offset:70#}
-{#        });#}
-{#        /*小屏幕导航点击关闭菜单*/#}
-{#        $('.navbar-collapse a').click(function(){#}
-{#            $('.navbar-collapse').collapse('hide');#}
-{#        });#}
-{#        new WOW().init();#}
+    	$(function () {
 
-        //0120 点击bbs左边的li，右边进行切换
-{#        $(".bbsli").click(function () {#}
-{#            //切换导航的li#}
-{#            $(this).addClass("active").siblings().removeClass("active");#}
-{#            //找到当前的li的下标#}
-{#            var idx = $(this).index();#}
-{#            console.log(idx);#}
-{#            //切换右边的显示#}
-{#            $(".bbsRight").eq(idx).addClass("selected").siblings().removeClass("selected");#}
-{#        });#}
-    })
+	    var datas = [];
+	    $.ajax({
+            type: "get",
+            url: "/price/price02",
+            // timeout 可以设置超时时间, 表示如果 2s 内, 响应还没有回来, 就认为超时
+            timeout: 20000,
+
+            success: function (info) {
+{#                console.log(info)#}
+                datas = info
+
+                $('#reportTable').bootstrapTable({
+                    method: 'get',
+                    cache: false,
+                    height: 700,
+        {#			striped: true,#}
+                    pagination: true,
+                    pageSize: 50,
+                    pageNumber:1,
+                    pageList: [10, 20, 50, 100, 200, 500],
+        {#			search: true,#}
+        {#			showColumns: true,#}
+        {#			showRefresh: false,#}
+        {#			showExport: false,#}
+                    exportTypes: ['csv','txt','xml'],
+        {#			search: true,#}
+        {#			clickToSelect: false,#}
+        {#			clickToSelect: true,#}
+                    sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
+                    columns:
+                    [
+                        {field:"name",title:"品种",align:"center",sortable:"true"},
+                        {field:"price",title:"价格(元\\kg)",align:"center",sortable:"true"},
+                        {field:"area",title:"产地",align:"center",sortable:"true"},
+                        {field:"day",title:"日期",align:"center",sortable:"true"},
+                    ],
+                    data:datas,
+                });
+            }
+        })
+            console.log(datas)
+
+	});
 </script>
 </body>
 </html>

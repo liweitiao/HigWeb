@@ -23,7 +23,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/article" class="navbar-brand"><img src="{% static 'article/images/LOGO3.PNG' %}" class="img-responsive" alt="logo"/></a>
+            <a href="/" class="navbar-brand"><img src="{% static 'article/images/LOGO3.PNG' %}" class="img-responsive" alt="logo"/></a>
+
+            <div class="weixin">
+                <img src="{% static 'article/images/weixin.PNG' %}" class="img-responsive weixin2" alt="logo"/>
+                <div class="erweima">
+                    <img src="{% static 'article/images/二维码.png' %}">
+{#                    <img src="{% static 'article/images/扶贫小程序码.PNG' %}">#}
+                </div>
+            </div>
+
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
@@ -71,7 +80,7 @@
                 <div class="outer ">
                     <div class="inner ">
                         <span class="left">企业简介</span>
-                        <a href="/article/qiye">详情>></a>
+                        <a href="/qiye">详情>></a>
                     </div>
 
                     <div class="inner2 ">
@@ -94,12 +103,12 @@
                 <div class="outer">
                     <div class="inner">
                         <span class="left">政策法规</span>
-                        <a href="http://127.0.0.1:8000/article/bianminlist/3/1">更多>></a>
+                        <a href="http://127.0.0.1:8000/bianminlist/3/1">更多>></a>
                     </div>
                     <div class="inner2">
                         {% get_recent_entries_03 as recent_entry_list_03 %}
                         {% for entry in recent_entry_list_03 %}
-                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:20 }}<span>{{ entry.created_time|date:'Y-m-d' }}</span></li></a>
+                            <a href="{% url 'article:detail' 'bianminlist' entry.id %}"><li>{{ entry.title|truncatechars:20 }}<span>{{ entry.created_time|date:'Y-m-d' }}</span></li></a>
                         {% endfor %}
 {#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...<span >2020-02-02</span></li></a>#}
                     </div>
@@ -119,7 +128,7 @@
                 <div class="outer">
                     <div class="inner">
                         <span class="left">食品安全</span>
-                        <a href="http://127.0.0.1:8000/article/bianminlist/4/1?sort=shian">详情>></a>
+                        <a href="http://127.0.0.1:8000/bianminlist/4/1?sort=shian">更多>></a>
                     </div>
 
                     <div class="inner2">
@@ -132,7 +141,7 @@
                                 <div class="inner3">
                                     {% get_recent_entries_04 as recent_entry_list_04 %}
                                     {% for entry in recent_entry_list_04 %}
-                                        <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:24 }}</li></a>
+                                        <a href="{% url 'article:detail' 'bianminlist' entry.id %}"><li>{{ entry.title|truncatechars:24 }}</li></a>
                                     {% endfor %}
 {#                                    <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
                                 </div>
@@ -195,12 +204,12 @@
                 <div class="outer">
                     <div class="inner">
                         <span class="left">园区动态</span>
-                        <a href="http://127.0.0.1:8000/article/list/1/1">更多>></a>
+                        <a href="http://127.0.0.1:8000/list/1/1">更多>></a>
                     </div>
                     <div class="inner2">
                         {% get_recent_entries_01 as recent_entry_list_01 %}
                         {% for entry in recent_entry_list_01 %}
-                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:24 }}</li></a>
+                            <a href="{% url 'article:detail' 'list' entry.id %}"><li>{{ entry.title|truncatechars:24 }}</li></a>
                         {% endfor %}
 
 {#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
@@ -233,7 +242,7 @@
                 <div class="outer">
                     <div class="inner">
                         <span class="left">媒体播报</span>
-                        <a href="http://127.0.0.1:8000/article/list/2/1?sort=price">更多>></a>
+                        <a href="http://127.0.0.1:8000/list/2/1?sort=price">更多>></a>
                     </div>
                     <div class="inner2">
                         {% get_recent_entries_12 as recent_entry_list_12 %}
@@ -250,12 +259,12 @@
                 <div class="outer">
                     <div class="inner">
                         <span class="left">企业公告</span>
-                        <a href="http://127.0.0.1:8000/article/gonggaolist/9/1">更多>></a>
+                        <a href="http://127.0.0.1:8000/gonggaolist/9/1">更多>></a>
                     </div>
                     <div class="inner2">
                         {% get_recent_entries_09 as recent_entry_list_09 %}
                         {% for entry in recent_entry_list_09 %}
-                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:24 }}</li></a>
+                            <a href="{% url 'article:detail' 'gonggaolist' entry.id %}"><li>{{ entry.title|truncatechars:24 }}</li></a>
                         {% endfor %}
 {#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
 
@@ -276,12 +285,12 @@
                 <div class="outer">
                     <div class="inner">
                         <span class="left">党群建设</span>
-                        <a href="http://127.0.0.1:8000/article/dangqunlist/6/1">更多>></a>
+                        <a href="http://127.0.0.1:8000/dangqunlist/6/1">更多>></a>
                     </div>
                     <div class="inner2">
                         {% get_recent_entries_06 as recent_entry_list_06 %}
                         {% for entry in recent_entry_list_06 %}
-                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:24 }}</li></a>
+                            <a href="{% url 'article:detail' 'dangqunlist' entry.id %}"><li>{{ entry.title|truncatechars:24 }}</li></a>
                         {% endfor %}
 {#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
 
@@ -295,12 +304,12 @@
                 <div class="outer">
                     <div class="inner">
                         <span class="left">食品知识</span>
-                        <a href="http://127.0.0.1:8000/article/bianminlist/5/1?sort=shipin">更多>></a>
+                        <a href="http://127.0.0.1:8000/bianminlist/5/1?sort=shipin">更多>></a>
                     </div>
                     <div class="inner2">
                         {% get_recent_entries_05 as recent_entry_list_05 %}
                         {% for entry in recent_entry_list_05 %}
-                            <a href="{{ entry.get_absolute_url }}"><li>{{ entry.title|truncatechars:24 }}</li></a>
+                            <a href="{% url 'article:detail' 'bianminlist' entry.id %}"><li>{{ entry.title|truncatechars:24 }}</li></a>
                         {% endfor %}
 {#                        <a href="#"><li>老特区融合发展  利民惠民共奔小康生活...</li></a>#}
                     </div>
@@ -370,42 +379,20 @@ $(function () {
     type: "get",
     url: "/price/price",
     // timeout 可以设置超时时间, 表示如果 2s 内, 响应还没有回来, 就认为超时
-    timeout: 2000,
+    timeout: 20000,
     // 发送ajax前,会调用的函数,
     // 如果这个函数返回 false,(注意: 必须返回false) 这次请求就不发送了
     // 一般 beforeSend 中用于表单校验
 
     // 成功的回调函数
     success: function (info) {
-{#        console.log(info)#}
+        console.log(info)
         Items = info
         var MyMarhq = '';
     clearInterval(MyMarhq);
     $('.tbl-body tbody').empty();
     $('.tbl-header tbody').empty();
     var str = '';
-{#    var Items = [{"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米玉米玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"},#}
-{#        {"City": "玉米", "SaleIncome": "2.3", "SalePlan": "kg", "PlanFinish": "2019-10-21"}#}
-{#    ];#}
 
     $.each(Items, function (i, item) {
         console.log(item);
@@ -448,14 +435,110 @@ $(function () {
         })
     }
 
-
-
-
     },
+
+
+
+
     // 失败的回调函数
     error: function () {
         alert("服务器繁忙");
+
+        {# 如果取不到真实数据时，就用下面的过时数据替代 #}
+        Items = [
+                    ["橙子", "7.2", "2020-04-15", "重庆市-重庆市-奉节县"],
+                    ["猕猴桃", "10", "2020-04-14", "陕西省-西安市-新城区"],
+                    ["木瓜", "4.5", "2020-04-14", "海南省-三亚市-市辖区"],
+                    ["柑橘", "8", "2020-04-14", "广西省-桂林市-阳朔县"],
+                    ["橙子", "7.2", "2020-04-14", "重庆市-重庆市-奉节县"],
+                    ["猕猴桃", "10", "2020-04-13", "陕西省-西安市-新城区"],
+                    ["木瓜", "4.5", "2020-04-13", "海南省-三亚市-市辖区"],
+                    ["柑橘", "8", "2020-04-13", "广西省-桂林市-阳朔县"],
+                    ["橙子", "7.2", "2020-04-13", "重庆市-重庆市-奉节县"],
+                    ["猕猴桃", "10", "2020-04-12", "陕西省-西安市-新城区"],
+                    ["木瓜", "4.5", "2020-04-12", "海南省-三亚市-市辖区"],
+                    ["柑橘", "8", "2020-04-12", "广西省-桂林市-阳朔县"],
+                    ["橙子", "7.2", "2020-04-12", "重庆市-重庆市-奉节县"],
+                    ["猕猴桃", "10", "2020-04-11", "陕西省-西安市-新城区"],
+                    ["木瓜", "4.5", "2020-04-11", "海南省-三亚市-市辖区"],
+                    ["柑橘", "8", "2020-04-11", "广西省-桂林市-阳朔县"],
+                    ["橙子", "7", "2020-04-11", "重庆市-重庆市-奉节县"],
+                    ["猕猴桃", "10", "2020-04-10", "陕西省-西安市-新城区"],
+                    ["木瓜", "4.5", "2020-04-10", "海南省-三亚市-市辖区"],
+                    ["柑橘", "8", "2020-04-10", "广西省-桂林市-阳朔县"],
+                    ["橙子", "7", "2020-04-10", "重庆市-重庆市-奉节县"],
+                    ["猕猴桃", "10", "2020-04-09", "陕西省-西安市-新城区"],
+                    ["木瓜", "4.5", "2020-04-09", "海南省-三亚市-市辖区"],
+                    ["柑橘", "8", "2020-04-09", "广西省-桂林市-阳朔县"],
+                    ["橙子", "7", "2020-04-09", "重庆市-重庆市-奉节县"],
+                    ["猕猴桃", "10", "2020-04-08", "陕西省-西安市-新城区"],
+                    ["木瓜", "4.5", "2020-04-08", "海南省-三亚市-市辖区"],
+                    ["柑橘", "8", "2020-04-08", "广西省-桂林市-阳朔县"],
+                    ["橙子", "7", "2020-04-08", "重庆市-重庆市-奉节县"],
+                    ["猕猴桃", "10", "2020-04-07", "陕西省-西安市-新城区"],
+                    ["木瓜", "4.5", "2020-04-07", "海南省-三亚市-市辖区"],
+                    ["柑橘", "8", "2020-04-07", "广西省-桂林市-阳朔县"],
+                    ["橙子", "7", "2020-04-07", "重庆市-重庆市-奉节县"],
+                    ["猕猴桃", "10", "2020-04-06", "陕西省-西安市-新城区"],
+                    ["木瓜", "4.5", "2020-04-06", "海南省-三亚市-市辖区"],
+                    ["柑橘", "8.5", "2020-04-06", "广西省-桂林市-阳朔县"]
+             ]
+
+        var MyMarhq = '';
+        clearInterval(MyMarhq);
+        $('.tbl-body tbody').empty();
+        $('.tbl-header tbody').empty();
+        var str = '';
+
+        $.each(Items, function (i, item) {
+            console.log(item);
+            str = '<tr>' +
+
+                '<td>' + item[0] + '</td>' +
+                '<td>' + item[1] + '</td>' +
+                '<td>' + item[3] + '</td>' +
+                '<td>' + item[2] + '</td>' +
+                '</tr>'
+
+            $('.tbl-body tbody').append(str);
+            $('.tbl-header tbody').append(str);
+        });
+
+    if (Items.length > 3) {
+        $('.tbl-body tbody').html($('.tbl-body tbody').html() + $('.tbl-body tbody').html());
+        $('.tbl-body').css('top', '0');
+        var tblTop = 0;
+        var speedhq = 50; // 数值越大越慢
+        var outerHeight = $('.tbl-body tbody').find("tr").outerHeight();
+
+        function Marqueehq() {
+            if (tblTop <= -outerHeight * Items.length) {
+                tblTop = 0;
+            } else {
+                tblTop -= 1;
+            }
+            $('.tbl-body').css('top', tblTop + 'px');
+        }
+
+        MyMarhq = setInterval(Marqueehq, speedhq);
+
+        // 鼠标移上去取消事件
+        $(".tbl-header tbody").hover(function () {
+            clearInterval(MyMarhq);
+        }, function () {
+            clearInterval(MyMarhq);
+            MyMarhq = setInterval(Marqueehq, speedhq);
+        })
+    }
+
     },
+
+
+
+
+
+
+
     // 不管成功还是失败都会调用的函数
     complete: function () {
         console.log("不管成功还是失败都会调用的 complete");
