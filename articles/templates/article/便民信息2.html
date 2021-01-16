@@ -79,6 +79,7 @@
 				        <a href="{% url 'article:bianminlist' 4 1 %}?sort=shian" {% if sort == 'shian' %}class="active"{% endif %}>食安與情<br></a>
                         <a href="{% url 'article:bianminlist' 5 1 %}?sort=shipin" {% if sort == 'shipin' %}class="active"{% endif %}>食品知识<br></a>
                         <a href="{% url 'article:jiagelist' %}?sort=shuiguo" {% if sort == 'shuiguo' %}class="active"{% endif %}>水果价格</a>
+                        <a href="{% url 'article:shucailist' %}?sort=shucai" {% if sort == 'shucai' %}class="active"{% endif %} id="shucai">蔬菜价格</a>
                     </div>
 
                 </div>

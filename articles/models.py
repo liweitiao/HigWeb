@@ -42,7 +42,9 @@ class Entry(models.Model):
 
     abstract = models.TextField(max_length=256, blank=True, null=True, verbose_name='文章摘要')
 
-    img = models.ImageField(upload_to='blog_images', null=True, blank=True, verbose_name='文章配图')
+    # img = models.ImageField(upload_to='blog_images', null=True, blank=True, verbose_name='文章配图')
+
+    img = models.ImageField(null=True, blank=True, verbose_name='文章配图')
 
     visiting = models.PositiveIntegerField(default=0, verbose_name='文章访问量')
 

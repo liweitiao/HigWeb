@@ -1,0 +1,15 @@
+certifi==2020.4.5.1
+chardet==3.0.4
+cx-Oracle==7.3.0
+Django==2.0
+django-ckeditor==5.8.0
+django-contrib-comments==1.8.0
+django-js-asset==1.2.2
+DjangoUeditor==1.8.143
+idna==2.9
+Markdown==2.6.11
+Pillow==7.1.1
+PyMySQL==0.8.0
+pytz==2019.3
+requests==2.23.0
+urllib3==1.25.9
